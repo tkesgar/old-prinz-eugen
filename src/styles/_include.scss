@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Inconsolata&display=swap");
+
+@import "~bootstrap/scss/functions";
+
+$font-family-sans-serif: "Lato", sans-serif;
+$font-family-monospace:  "Inconsolata", monospace;
+
+$border-radius:    0;
+$border-radius-lg: 0;
+$border-radius-sm: 0;
+
+@import "~bootstrap/scss/variables";
+@import "~bootswatch/dist/cosmo/variables";
+
+@import "~bootstrap/scss/mixins";
