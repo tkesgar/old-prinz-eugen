@@ -5,6 +5,12 @@ import NotFound from './views/NotFound'
 import Register from './views/Register'
 import Login from './views/Login'
 import Callback from './views/Callback'
+import Dashboard from './views/Dashboard'
+import checkAuthRoute from './lib/check-auth-route'
+import store from './store'
+import CharaNew from './views/CharaNew'
+import CharaEdit from './views/CharaEdit'
+import CharaView from './views/CharaView'
 
 Vue.use(Router)
 
@@ -13,12 +19,21 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/_callback',
-      component: Callback
+      path: '/',
+      component: Index,
+      beforeEnter (to, from, next) {
+        if (_getUser()) {
+          next('/home')
+          return
+        }
+
+        next()
+      }
     },
     {
-      path: '/',
-      component: Index
+      path: '/home',
+      component: Dashboard,
+      beforeEnter: checkAuthRoute(_getUser)
     },
     {
       path: '/login',
@@ -29,8 +44,28 @@ export default new Router({
       component: Register
     },
     {
+      path: '/chara/new',
+      component: CharaNew
+    },
+    {
+      path: '/chara/:key',
+      component: CharaView
+    },
+    {
+      path: '/chara/:key/edit',
+      component: CharaEdit
+    },
+    {
+      path: '/_callback',
+      component: Callback
+    },
+    {
       path: '*',
       component: NotFound
     }
   ]
 })
+
+function _getUser () {
+  return store.state.user || null
+}

@@ -1,8 +1,7 @@
 <template>
   <default-layout>
     <b-container>
-      <h1>Hello world!</h1>
-      <p>It works!</p>
+      <h1>Chara edit</h1>
     </b-container>
   </default-layout>
 </template>

@@ -13,6 +13,12 @@ export default new Vuex.Store({
   mutations: {
     setUser (state, { user }) {
       state.user = user
+    },
+    setNext (state, { next }) {
+      state.next = next
+    },
+    clearNext (state) {
+      delete state.next
     }
   },
   actions: { },

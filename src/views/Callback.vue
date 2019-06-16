@@ -11,9 +11,13 @@ export default {
     acall(async () => {
       const { info } = this.$router.currentRoute.query
       switch (info) {
-        case 'auth_google':
+        case 'auth':
           this.$store.commit('setUser', { user: await getUser() })
-          this.$router.push('/')
+
+          const next = this.$store.state.next || '/'
+          this.$store.commit('clearNext')
+
+          this.$router.push(next)
           break
         default:
           console.warn(`Unknown callback info: ${info}; redirect to index page.`)

@@ -1,9 +1,12 @@
 <template>
-  <login-card @login="handleLogin" />
+  <login-card
+    @login="handleLogin"
+    @login-google="handleLoginGoogle"
+  />
 </template>
 
 <script>
-import { request, getUser } from '../../utils/api'
+import { request, getUser, apiUrl } from '../../utils/api'
 import { acall } from '../../utils'
 import LoginCard from './pure'
 
@@ -19,6 +22,12 @@ export default {
         this.$store.commit('setUser', { user: await getUser() })
         this.$router.push('/')
       })
+    },
+    handleLoginGoogle () {
+      const { next } = this.$route.query
+      this.$store.commit('setNext', { next })
+
+      window.location.assign(`${apiUrl}/auth/google`)
     }
   }
 }

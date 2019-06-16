@@ -87,6 +87,7 @@ export default {
       const email = document.querySelector('#RegisterCard_email').value
       const password = document.querySelector('#RegisterCard_password').value
       const recaptchaToken = this.recaptchaToken
+
       this.$emit('register', { name, email, password, recaptchaToken })
     },
     handleRecaptchaVerify (token) {
