@@ -27,6 +27,12 @@ export default {
               alert('Alamat email yang Anda pilih sudah dipakai. Mungkin Anda sudah pernah masuk sebelumnya?')
               return
             }
+
+            if (err.code === 'ROUTE_DISABLED') {
+              alert('Sistem registrasi lewat email saat ini sedang dimatikan. Silakan masuk dengan menggunakan akun Google.')
+              this.$router.push('/login')
+              return
+            }
           }
 
           throw err

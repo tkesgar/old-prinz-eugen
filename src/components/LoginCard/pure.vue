@@ -3,6 +3,11 @@
     title="Masuk"
     class="login-card mx-auto"
   >
+    <p>
+      Anda dapat masuk dengan menggunakan akun Google Anda.
+    </p>
+    <b-button variant="google" block :href="googleLoginUrl">Masuk dengan Google</b-button>
+    <div class="text-center py-4">atau</div>
     <b-form @submit.prevent="handleSubmit">
       <b-form-group
         label-for="LoginCard_name"
@@ -33,7 +38,14 @@
 </template>
 
 <script>
+import { apiUrl } from '../../utils/api'
+
 export default {
+  data () {
+    return {
+      googleLoginUrl: `${apiUrl}/auth/google`
+    }
+  },
   methods: {
     handleSubmit () {
       const name = document.querySelector('#LoginCard_name').value
@@ -46,7 +58,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/include";
+
 .login-card {
   max-width: 480px;
+}
+
+.btn-google {
+  @include button-variant(#dc4e41, #dc4e41);
 }
 </style>

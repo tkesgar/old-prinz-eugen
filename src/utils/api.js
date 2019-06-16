@@ -1,8 +1,10 @@
 import ky, { HTTPError } from 'ky'
 import cookie from 'js-cookie'
 
+export const apiUrl = process.env.VUE_APP_API_URL
+
 export const api = ky.extend({
-  prefixUrl: process.env.VUE_APP_API_URL,
+  prefixUrl: apiUrl,
   credentials: 'include'
 })
 
