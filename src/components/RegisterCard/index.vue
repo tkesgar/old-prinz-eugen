@@ -5,7 +5,7 @@
 <script>
 import { request, getUser, APIError } from '../../utils/api'
 import { acall } from '../../utils'
-import RegisterCard from './pure'
+import RegisterCard from './view'
 
 export default {
   components: {

@@ -8,7 +8,7 @@
 <script>
 import { request, getUser, apiUrl } from '../../utils/api'
 import { acall } from '../../utils'
-import LoginCard from './pure'
+import LoginCard from './view'
 
 export default {
   components: {

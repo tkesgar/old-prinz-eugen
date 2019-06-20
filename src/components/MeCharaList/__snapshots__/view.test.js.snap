@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MeCharaListView should match snapshot 1`] = `
+<div
+  class="chara-list-empty text-center"
+>
+  <p>
+    Anda tidak memiliki karakter.
+  </p>
+   
+  <p>
+    Silakan buat karakter baru 
+    <a
+      class=""
+      href="/chara/new"
+      target="_self"
+    >
+      di sini
+    </a>
+    .
+  </p>
+</div>
+`;

@@ -23,9 +23,7 @@ export default new Vuex.Store({
   },
   actions: { },
   plugins: [
-    store => {
-      store.subscribe((mutation, state) => _saveState(state))
-    }
+    store => store.subscribe((mutation, state) => _saveState(state))
   ]
 })
 

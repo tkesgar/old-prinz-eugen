@@ -6,7 +6,7 @@
 import { request } from '../../utils/api'
 import { acall } from '../../utils'
 import { mapState } from 'vuex'
-import MainNavbar from './pure'
+import MainNavbar from './view'
 
 export default {
   components: {

@@ -8,9 +8,6 @@ import Callback from './views/Callback'
 import Dashboard from './views/Dashboard'
 import checkAuthRoute from './lib/check-auth-route'
 import store from './store'
-import CharaNew from './views/CharaNew'
-import CharaEdit from './views/CharaEdit'
-import CharaView from './views/CharaView'
 
 Vue.use(Router)
 
@@ -42,18 +39,6 @@ export default new Router({
     {
       path: '/register',
       component: Register
-    },
-    {
-      path: '/chara/new',
-      component: CharaNew
-    },
-    {
-      path: '/chara/:key',
-      component: CharaView
-    },
-    {
-      path: '/chara/:key/edit',
-      component: CharaEdit
     },
     {
       path: '/_callback',
