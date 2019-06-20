@@ -1,5 +1,9 @@
 <template>
-  <main-navbar :user="user" @logout="handleLogout" />
+  <main-navbar
+    :user="user"
+    @logout="handleLogout"
+    @modal-show="handleModalShow"
+  />
 </template>
 
 <script>
@@ -23,6 +27,9 @@ export default {
         this.$store.commit('setUser', { user: null })
         this.$router.push('/')
       })
+    },
+    handleModalShow (name) {
+      this.$bvModal.show(`${name}_modal`)
     }
   }
 }

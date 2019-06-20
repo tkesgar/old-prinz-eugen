@@ -11,6 +11,7 @@ import store from './store'
 
 Vue.use(Router)
 
+// TODO Pindahkan route navigation guards ke views
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,

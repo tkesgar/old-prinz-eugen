@@ -7,7 +7,7 @@
       <b-navbar-nav v-if="user">
         <b-nav-item-dropdown left>
           <template slot="button-content">Buat</template>
-          <b-dropdown-item to="/chara/new">Karakter baru</b-dropdown-item>
+          <b-dropdown-item @click="$emit('modal-show', 'CreateCharaModal')">Karakter baru</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
       <div class="ml-auto">

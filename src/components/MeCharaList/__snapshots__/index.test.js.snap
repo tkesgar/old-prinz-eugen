@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`MeCharaList should match snapshot 1`] = `
-<me-chara-list-stub
-  charas=""
-/>
-`;

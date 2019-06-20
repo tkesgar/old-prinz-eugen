@@ -20,4 +20,9 @@ export default {
 .not-found {
   text-align: center;
 }
+
+h1 {
+  font-size: 8rem;
+  font-weight: lighter;
+}
 </style>
