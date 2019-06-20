@@ -12,7 +12,7 @@ exports[`MeCharaListView should match snapshot 1`] = `
     Silakan buat karakter baru 
     <a
       class=""
-      href="/chara/new"
+      href="#"
       target="_self"
     >
       di sini
