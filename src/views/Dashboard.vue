@@ -1,19 +1,19 @@
 <template>
   <default-layout>
     <b-container>
-      <me-chara-list class="m-4" />
+      <main-me-chara class="m-4" />
     </b-container>
   </default-layout>
 </template>
 
 <script>
 import DefaultLayout from '../layouts/DefaultLayout'
-import MeCharaList from '../components/MeCharaList'
+import MainMeChara from '../components/MainMeChara'
 
 export default {
   components: {
     DefaultLayout,
-    MeCharaList
+    MainMeChara
   }
 }
 </script>

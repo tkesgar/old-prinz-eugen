@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainFooter should match snapshot 1`] = `
+<div
+  class="footer py-4"
+>
+  <a
+    href="https://github.com/tkesgar/prinz-eugen"
+    target="_blank"
+  >
+    prinz-eugen
+  </a>
+  #
+  <a
+    href="https://github.com/tkesgar/prinz-eugen/commit/fce894f"
+    target="_blank"
+  >
+    fce894f
+  </a>
+</div>
+`;

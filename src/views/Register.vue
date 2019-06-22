@@ -2,7 +2,7 @@
   <default-layout>
     <b-container>
       <div class="py-5">
-        <register-card />
+        <main-register-card />
       </div>
     </b-container>
   </default-layout>
@@ -10,12 +10,12 @@
 
 <script>
 import DefaultLayout from '../layouts/DefaultLayout'
-import RegisterCard from '../components/RegisterCard'
+import MainRegisterCard from '../components/MainRegisterCard'
 
 export default {
   components: {
     DefaultLayout,
-    RegisterCard
+    MainRegisterCard
   }
 }
 </script>

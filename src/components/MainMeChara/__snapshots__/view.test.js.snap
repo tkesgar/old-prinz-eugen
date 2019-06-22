@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MeCharaListView should match snapshot 1`] = `
+<div>
+  <div
+    class="text-center"
+  >
+    <p>
+      Belum ada karakter.
+    </p>
+  </div>
+</div>
+`;

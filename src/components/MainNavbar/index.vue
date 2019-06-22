@@ -1,5 +1,5 @@
 <template>
-  <main-navbar
+  <view-component
     :user="user"
     @logout="handleLogout"
     @modal-show="handleModalShow"
@@ -10,11 +10,11 @@
 import { request } from '../../utils/api'
 import { acall } from '../../utils'
 import { mapState } from 'vuex'
-import MainNavbar from './view'
+import ViewComponent from './view'
 
 export default {
   components: {
-    MainNavbar
+    ViewComponent
   },
   computed: {
     ...mapState(['user'])

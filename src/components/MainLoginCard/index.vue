@@ -1,5 +1,5 @@
 <template>
-  <login-card
+  <view-component
     @login="handleLogin"
     @login-google="handleLoginGoogle"
   />
@@ -8,11 +8,11 @@
 <script>
 import { request, getUser, apiUrl } from '../../utils/api'
 import { acall } from '../../utils'
-import LoginCard from './view'
+import ViewComponent from './view'
 
 export default {
   components: {
-    LoginCard
+    ViewComponent
   },
   methods: {
     handleLogin ({ name, password }) {

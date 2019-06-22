@@ -1,6 +1,7 @@
 <template>
   <me-chara-list
     @modal-show="handleModalShow"
+    :charas="charas"
   />
 </template>
 
@@ -15,12 +16,12 @@ export default {
   },
   data () {
     return {
-      meChara: []
+      charas: []
     }
   },
   mounted () {
     acall(async () => {
-      this.meChara = await request('me/chara')
+      this.charas = await request('me/chara')
     })
   },
   methods: {

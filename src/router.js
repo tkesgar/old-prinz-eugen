@@ -6,6 +6,7 @@ import Register from './views/Register'
 import Login from './views/Login'
 import Callback from './views/Callback'
 import Dashboard from './views/Dashboard'
+import CharaView from './views/CharaView'
 import checkAuthRoute from './lib/check-auth-route'
 import store from './store'
 
@@ -32,6 +33,10 @@ export default new Router({
       path: '/home',
       component: Dashboard,
       beforeEnter: checkAuthRoute(_getUser)
+    },
+    {
+      path: '/chara/:charaId',
+      component: CharaView
     },
     {
       path: '/login',

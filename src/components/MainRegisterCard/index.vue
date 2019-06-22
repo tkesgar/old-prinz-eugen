@@ -1,15 +1,15 @@
 <template>
-  <register-card @register="handleRegister" />
+  <view-component @register="handleRegister" />
 </template>
 
 <script>
 import { request, getUser, APIError } from '../../utils/api'
 import { acall } from '../../utils'
-import RegisterCard from './view'
+import ViewComponent from './view'
 
 export default {
   components: {
-    RegisterCard
+    ViewComponent
   },
   methods: {
     handleRegister ({ name, email, password, recaptchaToken }) {

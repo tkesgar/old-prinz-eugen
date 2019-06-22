@@ -9,8 +9,8 @@ export const api = ky.extend({
 })
 
 export class APIError extends Error {
-  constructor (message, code, data) {
-    super(`${message} (${code})`)
+  constructor (message, code, data, client = true) {
+    super(`${client ? 'Client' : 'Server'} error: ${message} (${code})`)
     this.code = code
     this.data = data
   }
@@ -35,6 +35,10 @@ export async function request (path, body, method) {
       })()
     })
 
+    if (response.status === 201) {
+      return response.text()
+    }
+
     if (response.status === 204) {
       return
     }
@@ -42,9 +46,12 @@ export async function request (path, body, method) {
     return response.json()
   } catch (err) {
     if (err instanceof HTTPError) {
-      if (err.response.status === 400 || err.response.status === 500) {
+      const { status } = err.response
+      const isClientError = status === 400
+      const isServerError = status === 500
+      if (isClientError || isServerError) {
         const { message, code, data } = await err.response.json()
-        throw new APIError(message, code, data)
+        throw new APIError(message, code, data, isClientError)
       }
     }
 

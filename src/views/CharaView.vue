@@ -1,21 +1,19 @@
 <template>
   <default-layout>
     <b-container>
-      <div class="py-5">
-        <main-login-card />
-      </div>
+      <main-chara />
     </b-container>
   </default-layout>
 </template>
 
 <script>
 import DefaultLayout from '../layouts/DefaultLayout'
-import MainLoginCard from '../components/MainLoginCard'
+import MainChara from '../components/MainChara'
 
 export default {
   components: {
     DefaultLayout,
-    MainLoginCard
+    MainChara
   }
 }
 </script>

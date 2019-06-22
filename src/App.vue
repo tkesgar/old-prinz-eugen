@@ -1,16 +1,16 @@
 <template>
   <div>
     <router-view/>
-    <create-chara-modal />
+    <modal-create-chara />
   </div>
 </template>
 
 <script>
-import CreateCharaModal from './components/CreateCharaModal'
+import ModalCreateChara from './components/ModalCreateChara'
 
 export default {
   components: {
-    CreateCharaModal
+    ModalCreateChara
   }
 }
 </script>

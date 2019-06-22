@@ -9,7 +9,5 @@ Vue.use(BootstrapVue)
 new Vue({
   router,
   store,
-  render (h) {
-    return h(App)
-  }
+  render: (h) => h(App)
 }).$mount('#app')
