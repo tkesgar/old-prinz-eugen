@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
 import localVue from '../../utils/test/local-vue'
-import MeCharaListView from './view'
+import ViewComponent from './view'
 
-describe('MeCharaListView', () => {
-  const wrapper = mount(MeCharaListView, { localVue })
+describe('MainEditChara', () => {
+  const wrapper = mount(ViewComponent, { localVue })
 
   test('should mount successfully', () => {
     expect(wrapper.isVueInstance()).toBe(true)

@@ -1,6 +1,6 @@
 <template>
   <me-chara-list
-    @modal-show="handleModalShow"
+    @modal-show="showModal"
     :charas="charas"
   />
 </template>
@@ -9,6 +9,7 @@
 import MeCharaList from './view'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
+import { helperMethods } from '../../utils/component-helpers'
 
 export default {
   components: {
@@ -21,13 +22,12 @@ export default {
   },
   mounted () {
     acall(async () => {
+      // TODO Tambahkan info dan image di me/chara request (buat nampilin gambar sama nama)
       this.charas = await request('me/chara')
     })
   },
   methods: {
-    handleModalShow (name) {
-      this.$bvModal.show(`${name}_modal`)
-    }
+    ...helperMethods
   }
 }
 </script>

@@ -30,14 +30,10 @@ export async function request (path, body, method) {
           return {}
         }
 
-        const withJSONBody = ['get', 'head'].includes(method)
-        return { [withJSONBody ? 'searchParams' : 'json']: body }
+        const withBody = ['get', 'head'].includes(method)
+        return { [withBody ? 'searchParams' : 'json']: body }
       })()
     })
-
-    if (response.status === 201) {
-      return response.text()
-    }
 
     if (response.status === 204) {
       return

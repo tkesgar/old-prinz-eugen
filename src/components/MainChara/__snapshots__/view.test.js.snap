@@ -3,11 +3,41 @@
 exports[`ViewChara should match snapshot 1`] = `
 <div>
   <h1>
-    ViewChara
+    Data
   </h1>
    
+  <h2>
+    Chara id
+  </h2>
+   
   <p>
-    It works!
+    <code>
+      1
+    </code>
   </p>
+   
+  <h2>
+    Nama
+  </h2>
+   
+  <p>
+    <code>
+      test
+    </code>
+  </p>
+   
+  <h2>
+    Bio
+  </h2>
+   
+  <pre>
+    Test bio
+  </pre>
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
 </div>
 `;

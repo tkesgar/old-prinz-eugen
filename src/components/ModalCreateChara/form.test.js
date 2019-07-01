@@ -1,11 +1,9 @@
 import { mount } from '@vue/test-utils'
 import localVue from '../../utils/test/local-vue'
-import CreateCharaModal from './view'
+import CreateCharaModalForm from './form'
 
-describe('CreateCharaModal', () => {
-  const wrapper = mount(CreateCharaModal, {
-    localVue
-  })
+describe('CreateCharaModalForm', () => {
+  const wrapper = mount(CreateCharaModalForm, { localVue })
 
   test('should mount successfully', () => {
     expect(wrapper.isVueInstance()).toBe(true)

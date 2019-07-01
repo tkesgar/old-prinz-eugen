@@ -1,14 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './views/Index'
+import TermsOfServices from './views/TermsOfServices'
+import PrivacyPolicy from './views/PrivacyPolicy'
 import NotFound from './views/NotFound'
-import Register from './views/Register'
-import Login from './views/Login'
 import Callback from './views/Callback'
-import Dashboard from './views/Dashboard'
-import CharaView from './views/CharaView'
-import checkAuthRoute from './lib/check-auth-route'
-import store from './store'
+import Home from './views/Home'
 
 Vue.use(Router)
 
@@ -19,32 +16,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Index,
-      beforeEnter (to, from, next) {
-        if (_getUser()) {
-          next('/home')
-          return
-        }
-
-        next()
-      }
+      component: Index
     },
     {
       path: '/home',
-      component: Dashboard,
-      beforeEnter: checkAuthRoute(_getUser)
+      component: Home
     },
     {
-      path: '/chara/:charaId',
-      component: CharaView
+      path: '/tos',
+      component: TermsOfServices
     },
     {
-      path: '/login',
-      component: Login
-    },
-    {
-      path: '/register',
-      component: Register
+      path: '/privacy',
+      component: PrivacyPolicy
     },
     {
       path: '/_callback',
@@ -56,7 +40,3 @@ export default new Router({
     }
   ]
 })
-
-function _getUser () {
-  return store.state.user || null
-}

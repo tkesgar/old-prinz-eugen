@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainMeCharaListView with chara list should match snapshot 1`] = `
+<div>
+  <div
+    data-test-key="chara"
+  >
+    <a
+      class=""
+      href="/chara/1"
+      target="_self"
+    >
+      admiral_hipper
+    </a>
+  </div>
+  <div
+    data-test-key="chara"
+  >
+    <a
+      class=""
+      href="/chara/2"
+      target="_self"
+    >
+      blucher
+    </a>
+  </div>
+  <div
+    data-test-key="chara"
+  >
+    <a
+      class=""
+      href="/chara/3"
+      target="_self"
+    >
+      prinz_eugen
+    </a>
+  </div>
+  <div
+    data-test-key="chara"
+  >
+    <a
+      class=""
+      href="/chara/4"
+      target="_self"
+    >
+      seydlitz
+    </a>
+  </div>
+  <div
+    data-test-key="chara"
+  >
+    <a
+      class=""
+      href="/chara/5"
+      target="_self"
+    >
+      lutzow
+    </a>
+  </div>
+</div>
+`;
+
+exports[`MainMeCharaListView with empty chara list (default) should match snapshot 1`] = `
+<div>
+  <div
+    class="text-center"
+    data-test-key="empty-message"
+  >
+    <p>
+      Belum ada karakter.
+    </p>
+     
+    <button
+      class="btn btn-primary"
+      type="button"
+    >
+      Buat karakter baru
+    </button>
+  </div>
+</div>
+`;

@@ -4,54 +4,38 @@ exports[`MainNavbar should match snapshot 1`] = `
 <nav
   class="navbar navbar-dark bg-dark navbar-expand"
 >
-  <div
-    class="container"
+  <a
+    class="navbar-brand"
+    href="/"
+    target="_self"
   >
-    <a
-      class="navbar-brand"
-      href="/"
-      target="_self"
+    
+    Prinz Eugen 
+    <sup>
+      alpha
+    </sup>
+  </a>
+   
+  <!---->
+   
+  <div
+    class="ml-auto"
+  >
+    <ul
+      class="navbar-nav"
     >
-      
-      Prinz Eugen 
-      <sup>
-        alpha
-      </sup>
-    </a>
-     
-    <!---->
-     
-    <div
-      class="ml-auto"
-    >
-      <ul
-        class="navbar-nav"
+      <li
+        class="nav-item"
       >
-        <li
-          class="nav-item"
+        <a
+          class="nav-link"
+          href="/auth/google"
+          target="_self"
         >
-          <a
-            class="nav-link"
-            href="/login"
-            target="_self"
-          >
-            Masuk
-          </a>
-        </li>
-         
-        <li
-          class="nav-item"
-        >
-          <a
-            class="nav-link"
-            href="/register"
-            target="_self"
-          >
-            Daftar
-          </a>
-        </li>
-      </ul>
-    </div>
+          Masuk
+        </a>
+      </li>
+    </ul>
   </div>
 </nav>
 `;

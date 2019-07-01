@@ -1,37 +1,46 @@
 <template>
-  <create-chara-modal
-    @modal-hide="handleModalHide"
-    @submit="handleSubmit"
-  />
+  <b-modal
+    id="CreateCharaModal_modal"
+    title="Buat karakter baru"
+    hide-footer
+    @hide="reset"
+  >
+    <create-chara-modal-form
+      ref="form"
+      @submit="handleSubmit"
+    />
+  </b-modal>
 </template>
 
 <script>
-import CreateCharaModal from './view'
+import CreateCharaModalForm from './form'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 
 export default {
   components: {
-    CreateCharaModal
+    CreateCharaModalForm
   },
   methods: {
-    handleModalHide (name) {
-      return this.$bvModal.hide(`${name}_modal`)
-    },
     handleSubmit ({ name, fullName, nickName }) {
       acall(async () => {
-        const entries = []
+        const info = {}
         if (fullName) {
-          entries.push({ key: 'full_name', value: fullName })
-        }
-        if (nickName) {
-          entries.push({ key: 'nick_name', value: nickName })
+          info.full_name = fullName
         }
 
-        const location = await request('chara', { name, entries })
+        if (nickName) {
+          info.nick_name = nickName
+        }
+
+        const { id } = await request('chara', { name, info })
+
         this.$bvModal.hide(`CreateCharaModal_modal`)
-        this.$router.push(location)
+        this.$router.push(`/chara/${id}`)
       })
+    },
+    reset () {
+      this.$refs.form.reset()
     }
   }
 }

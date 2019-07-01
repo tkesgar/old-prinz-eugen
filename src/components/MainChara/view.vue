@@ -23,6 +23,7 @@
         </li>
       </ul>
     </template>
+    <b-button :to="`/chara/${chara.id}/edit`" v-if="chara.userId === userId" @click="$emit('edit')">Edit karakter</b-button>
   </div>
 </template>
 
@@ -40,6 +41,10 @@ export default {
     charaImage: {
       type: Array,
       default: () => []
+    },
+    userId: {
+      type: Number,
+      default: null
     }
   }
 }

@@ -2,20 +2,52 @@
 
 exports[`MainFooter should match snapshot 1`] = `
 <div
-  class="footer py-4"
+  class="root py-4"
 >
-  <a
-    href="https://github.com/tkesgar/prinz-eugen"
-    target="_blank"
+  <ul>
+    <li>
+      <a
+        href="https://github.com/tkesgar/prinz-eugen"
+        target="_blank"
+      >
+        prinz-eugen
+      </a>
+      #
+      <a
+        href="https://github.com/tkesgar/prinz-eugen/commit/9140f71"
+        target="_blank"
+      >
+        9140f71
+      </a>
+    </li>
+     
+    <li>
+      <a
+        class=""
+        href="/tos"
+        target="_self"
+      >
+        Syarat dan Ketentuan
+      </a>
+    </li>
+     
+    <li>
+      <a
+        class=""
+        href="/privacy"
+        target="_self"
+      >
+        Kebijakan Privasi
+      </a>
+    </li>
+  </ul>
+   
+  <div
+    class="notice text-muted"
   >
-    prinz-eugen
-  </a>
-  #
-  <a
-    href="https://github.com/tkesgar/prinz-eugen/commit/fce894f"
-    target="_blank"
-  >
-    fce894f
-  </a>
+    
+    Aplikasi ini masih dalam tahap pengembangan. Mohon digunakan dengan bijak.
+  
+  </div>
 </div>
 `;

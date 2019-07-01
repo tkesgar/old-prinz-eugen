@@ -5,6 +5,7 @@
       :chara="chara"
       :chara-info="charaInfo"
       :chara-image="charaImage"
+      :user-id="user ? user.id : null"
     />
   </div>
 </template>
@@ -13,6 +14,7 @@
 import ViewComponent from './view'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -24,6 +26,9 @@ export default {
       charaInfo: [],
       charaImage: []
     }
+  },
+  computed: {
+    ...mapState(['user'])
   },
   mounted () {
     acall(async () => {

@@ -1,13 +1,14 @@
 <template>
   <view-component
     :user="user"
+    :apiUrl="apiUrl"
     @logout="handleLogout"
     @modal-show="handleModalShow"
   />
 </template>
 
 <script>
-import { request } from '../../utils/api'
+import { request, apiUrl } from '../../utils/api'
 import { acall } from '../../utils'
 import { mapState } from 'vuex'
 import ViewComponent from './view'
@@ -15,6 +16,11 @@ import ViewComponent from './view'
 export default {
   components: {
     ViewComponent
+  },
+  data () {
+    return {
+      apiUrl
+    }
   },
   computed: {
     ...mapState(['user'])
