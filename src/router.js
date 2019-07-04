@@ -6,6 +6,7 @@ import PrivacyPolicy from './views/PrivacyPolicy'
 import NotFound from './views/NotFound'
 import Callback from './views/Callback'
 import Home from './views/Home'
+import EditChara from './views/EditChara'
 
 Vue.use(Router)
 
@@ -21,6 +22,10 @@ export default new Router({
     {
       path: '/home',
       component: Home
+    },
+    {
+      path: '/chara/:charaId/edit',
+      component: EditChara
     },
     {
       path: '/tos',
