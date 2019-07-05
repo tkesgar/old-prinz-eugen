@@ -2,8 +2,8 @@
   <default-layout>
     <b-container>
       <b-jumbotron class="jumbotron">
-        <h1>Charaverse</h1>
-        <p>Supaya tidak ada OC yang terlantar</p>
+        <h1>Prinz Eugen</h1>
+        <p>Ich liebe dich~ is this a joke or the truth? Why don't you decide for yourself~</p>
       </b-jumbotron>
     </b-container>
   </default-layout>

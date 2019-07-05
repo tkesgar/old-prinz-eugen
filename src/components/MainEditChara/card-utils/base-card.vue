@@ -24,7 +24,7 @@ export default {
       default: null
     },
     deleteKey: {
-      type: String,
+      type: [String, Array],
       default: null
     }
   }

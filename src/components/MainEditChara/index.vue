@@ -9,10 +9,10 @@
             :key="card.name"
             :id="`MainEditChara_card-${card.name}`"
             :initial-value="card.initialValue"
+            :chara-info="charaInfo"
             class="card"
-            @insert-chara-info="insertCharaInfo"
             @change-chara-info="changeCharaInfo"
-            @delete-chara-info="(...keys) => deleteCharaInfoAndCard(keys, card.name)"
+            @delete-chara-info="keys => deleteCharaInfoAndCard(keys, card.name)"
           />
         </div>
         <div v-else class="py-5 text-center text-muted">
@@ -48,6 +48,7 @@
 import CardFullName from './cards/full-name'
 import CardNickName from './cards/nick-name'
 import CardJpName from './cards/jp-name'
+import CardThreeSizes from './cards/three-sizes'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 
@@ -60,6 +61,9 @@ const CARD_DICT = {
   },
   'jp-name': {
     text: 'Nama dalam tulisan Jepang'
+  },
+  'three-sizes': {
+    text: 'Three sizes (B-W-H)'
   }
 }
 
@@ -67,7 +71,8 @@ export default {
   components: {
     CardFullName,
     CardNickName,
-    CardJpName
+    CardJpName,
+    CardThreeSizes
   },
   data () {
     return {
@@ -104,14 +109,6 @@ export default {
       const index = this.cards.findIndex(card => card.name === card)
       this.cards.splice(index, 1)
     },
-    insertCharaInfo (manyCharaInfo) {
-      acall(async () => {
-        const { charaId } = this.$route.params
-        await request(`chara/${charaId}/info`, { info: manyCharaInfo })
-
-        this.fetchCharaInfo()
-      })
-    },
     changeCharaInfo (manyCharaInfo) {
       acall(async () => {
         const { charaId } = this.$route.params
@@ -131,17 +128,25 @@ export default {
         }
 
         this.fetchCharaInfo()
+        alert('Info berhasil diubah')
       })
     },
-    deleteCharaInfoAndCard (keys, cardName) {
+    deleteCharaInfoAndCard (keyOrKeys, cardName) {
       acall(async () => {
         const { charaId } = this.$route.params
 
-        await Promise.all(keys.map(async key => request(`chara/${charaId}/info/${key}`, undefined, 'delete')))
+        if (Array.isArray(keyOrKeys)) {
+          const keys = keyOrKeys
+          await request(`chara/${charaId}/info`, { keys }, 'delete')
+        } else {
+          const key = keyOrKeys
+          await request(`chara/${charaId}/info/${key}`, undefined, 'delete')
+        }
 
         this.fetchCharaInfo()
 
         this.deleteCard(cardName)
+        alert('Info berhasil dihapus')
       })
     },
     async fetchChara () {
@@ -166,6 +171,7 @@ export default {
         for (const [key, value] of Object.entries(this.charaInfo)) {
           let card = {}
 
+          // TODO initialValue dihapus saja, diganti dengan langsung baca charaInfo
           switch (key) {
             case 'full_name':
               card.name = 'full-name'
@@ -178,6 +184,13 @@ export default {
             case 'jp_name':
               card.name = 'jp-name'
               card.initialValue = value
+              break
+            // Ini kalau info group yang lainnya diskip, cuma pilih salah satu.
+            // Asumsinya dari API dijamin bersih (pasti segrup ada semua).
+            case 'threesizes.b': break
+            case 'threesizes.w': break
+            case 'threesizes.h':
+              card.name = 'three-sizes'
               break
             default:
               console.warn(`Unsupported chara info key: ${key}`)
