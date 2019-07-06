@@ -25,12 +25,6 @@ module.exports = {
         pathRewrite: {
           '^/api': '/'
         }
-      },
-      '^files': {
-        target: process.env.DEV_FILES_SERVER,
-        pathRewrite: {
-          '^/files': '/'
-        }
       }
     }
   }

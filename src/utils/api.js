@@ -16,7 +16,8 @@ export class APIError extends Error {
   }
 }
 
-export async function request (path, body, method) {
+// TODO Refactor yang udah pakai request ._.
+export async function request (path, body, method, opts = {}) {
   const hasBody = typeof body !== 'undefined'
 
   try {
@@ -32,7 +33,8 @@ export async function request (path, body, method) {
 
         const withBody = ['get', 'head'].includes(method)
         return { [withBody ? 'searchParams' : 'json']: body }
-      })()
+      })(),
+      ...opts
     })
 
     if (response.status === 204) {
