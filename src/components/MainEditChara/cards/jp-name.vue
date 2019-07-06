@@ -28,14 +28,14 @@ export default {
     BaseCard
   },
   props: {
-    initialValue: {
-      type: [String, Number],
-      default: null
+    charaInfo: {
+      type: Object,
+      default: () => ({})
     }
   },
   data () {
     return {
-      jpName: this.initialValue
+      jpName: this.charaInfo['jp_name']
     }
   },
   methods: {

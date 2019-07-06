@@ -10,20 +10,26 @@ module.exports = {
   chainWebpack(config) {
     config.module
       .rule('markdown')
-      .test(/\.md$/)
-      .use('html')
-        .loader('html-loader')
-        .end()
-      .use('markdown')
-        .loader('markdown-loader')
-        .end()
+        .test(/\.md$/)
+        .use('html')
+          .loader('html-loader')
+          .end()
+        .use('markdown')
+          .loader('markdown-loader')
+          .end()
   },
   devServer: {
     proxy: {
       '^/api': {
-        target: 'http://localhost:3000',
+        target: process.env.DEV_API_SERVER,
         pathRewrite: {
           '^/api': '/'
+        }
+      },
+      '^files': {
+        target: process.env.DEV_FILES_SERVER,
+        pathRewrite: {
+          '^/files': '/'
         }
       }
     }

@@ -6,46 +6,61 @@
   >
     <b-form @submit.prevent="handleSubmit">
       <b-form-row>
-        <b-col>
+        <b-col lg="6" xl="4">
           <b-form-group
             label="B"
             label-for="MainEditChara_threesizesB"
           >
-            <b-form-input
-              required
-              v-model.number="threesizesB"
-              type="number"
-              id="MainEditChara_threesizesB"
-              min="1"
-            />
+            <b-input-group>
+              <b-form-input
+                required
+                v-model.number="threesizesB"
+                type="number"
+                id="MainEditChara_threesizesB"
+                min="1"
+              />
+              <template v-slot:append>
+                <b-input-group-text>cm</b-input-group-text>
+              </template>
+            </b-input-group>
           </b-form-group>
         </b-col>
-        <b-col>
+        <b-col lg="6" xl="4">
           <b-form-group
             label="W"
             label-for="MainEditChara_threesizesW"
           >
-            <b-form-input
-              required
-              v-model.number="threesizesW"
-              type="number"
-              id="MainEditChara_threesizesW"
-              min="1"
-            />
+            <b-input-group>
+              <b-form-input
+                required
+                v-model.number="threesizesW"
+                type="number"
+                id="MainEditChara_threesizesW"
+                min="1"
+              />
+              <template v-slot:append>
+                <b-input-group-text>cm</b-input-group-text>
+              </template>
+            </b-input-group>
           </b-form-group>
         </b-col>
-        <b-col>
+        <b-col lg="6" xl="4">
           <b-form-group
             label="H"
             label-for="MainEditChara_threesizesH"
           >
-            <b-form-input
-              required
-              v-model.number="threesizesH"
-              type="number"
-              id="MainEditChara_threesizesH"
-              min="1"
-            />
+            <b-input-group>
+              <b-form-input
+                required
+                v-model.number="threesizesH"
+                type="number"
+                id="MainEditChara_threesizesH"
+                min="1"
+              />
+              <template v-slot:append>
+                <b-input-group-text>cm</b-input-group-text>
+              </template>
+            </b-input-group>
           </b-form-group>
         </b-col>
       </b-form-row>

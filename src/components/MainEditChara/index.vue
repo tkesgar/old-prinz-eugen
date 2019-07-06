@@ -1,37 +1,35 @@
 <template>
   <b-container class="root my-3">
     <b-row>
-      <b-col lg="8" order="2" order-lg="1">
-        <div v-if="cards.length > 0" class="card-container">
+      <b-col md="8" lg="9" order="2" order-md="1">
+        <div v-if="cards.length > 0" class="card-container card-columns">
           <component
             v-for="card of cards"
-            :is="`card-${card.name}`"
-            :key="card.name"
-            :id="`MainEditChara_card-${card.name}`"
-            :initial-value="card.initialValue"
+            :is="`card-${card}`"
+            :key="card"
+            :id="`MainEditChara_card-${card}`"
             :chara-info="charaInfo"
-            class="card"
             @change-chara-info="changeCharaInfo"
-            @delete-chara-info="keys => deleteCharaInfoAndCard(keys, card.name)"
+            @delete-chara-info="keys => deleteCharaInfo(keys, card)"
           />
         </div>
         <div v-else class="py-5 text-center text-muted">
           Belum ada info untuk karakter Anda.
         </div>
       </b-col>
-      <b-col lg="4" order="1" order-lg="2" class="mt-3 mt-lg-0 mb-3">
+      <b-col md="4" lg="3" order="1" order-md="2" class="my-3 mt-md-0">
         <b-card v-if="cards.length > 0" header="Pindah ke info" no-body>
           <b-list-group flush>
             <b-list-group-item
               v-for="card of cards"
-              :key="card.name"
-              :href="`#MainEditChara_card-${card.name}`"
+              :key="card"
+              :href="`#MainEditChara_card-${card}`"
             >
-              {{ card.text }}
+              {{ getCardText(card) }}
             </b-list-group-item>
           </b-list-group>
         </b-card>
-        <b-card v-if="cardOptions.length > 0" header="Tambah info">
+        <b-card v-if="cardOptions.length > 0" header="Tambah info" class="mt-3">
           <b-form @submit.prevent="insertCard">
             <b-form-group>
               <b-form-select required v-model="selectedCardOption" :options="cardOptions" />
@@ -49,10 +47,23 @@ import CardFullName from './cards/full-name'
 import CardNickName from './cards/nick-name'
 import CardJpName from './cards/jp-name'
 import CardThreeSizes from './cards/three-sizes'
+import CardHeight from './cards/height'
+import CardWeight from './cards/weight'
+import CardHairColor from './cards/hair-color'
+import CardEyeColor from './cards/eye-color'
+import CardFavColor from './cards/fav-color'
+import CardGender from './cards/gender'
+import CardHairLength from './cards/hair-length'
+import CardAge from './cards/age'
+import CardBirthday from './cards/birthday'
+import CardHoroscope from './cards/horoscope'
+import CardHometown from './cards/hometown'
+import CardSkill from './cards/skill'
+import CardHobby from './cards/hobby'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 
-const CARD_DICT = {
+const CARDS = {
   'full-name': {
     text: 'Nama lengkap'
   },
@@ -60,11 +71,107 @@ const CARD_DICT = {
     text: 'Nama panggilan'
   },
   'jp-name': {
-    text: 'Nama dalam tulisan Jepang'
+    text: 'Nama Jepang'
   },
   'three-sizes': {
     text: 'Three sizes (B-W-H)'
+  },
+  'height': {
+    text: 'Tinggi badan'
+  },
+  'weight': {
+    text: 'Berat badan'
+  },
+  'hair-color': {
+    text: 'Warna rambut'
+  },
+  'eye-color': {
+    text: 'Warna mata'
+  },
+  'fav-color': {
+    text: 'Warna kesukaan'
+  },
+  'gender': {
+    text: 'Gender'
+  },
+  'hair-length': {
+    text: 'Panjang rambut'
+  },
+  'age': {
+    text: 'Usia'
+  },
+  'birthday': {
+    text: 'Ulang tahun'
+  },
+  'horoscope': {
+    text: 'Horoskop'
+  },
+  'hometown': {
+    text: 'Asal'
+  },
+  'skill': {
+    text: 'Keahlian'
+  },
+  'hobby': {
+    text: 'hobby'
   }
+}
+
+function mapInfoKeysToCardName (keys) {
+  return keys
+    .map(key => {
+      switch (key) {
+        case 'full_name':
+          return 'full-name'
+        case 'nick_name':
+          return 'nick-name'
+        case 'jp_name':
+          return 'jp-name'
+        case 'height':
+          return 'height'
+        case 'weight':
+          return 'weight'
+        case 'gender':
+          return 'gender'
+        case 'hair_length':
+          return 'hair-length'
+        case 'age':
+          return 'age'
+        case 'horoscope':
+          return 'horoscope'
+        case 'hometown':
+          return 'hometown'
+        case 'skill':
+          return 'skill'
+        case 'hobby':
+          return 'hobby'
+        // Ini kalau info group yang lainnya diskip, cuma pilih salah satu.
+        // Asumsinya dari API dijamin bersih (pasti segrup ada semua).
+        case 'threesizes.b': return
+        case 'threesizes.w': return
+        case 'threesizes.h':
+          return 'three-sizes'
+        case 'hair_color.r': return
+        case 'hair_color.g': return
+        case 'hair_color.b':
+          return 'hair-color'
+        case 'eye_color.r': return
+        case 'eye_color.g': return
+        case 'eye_color.b':
+          return 'eye-color'
+        case 'fav_color.r': return
+        case 'fav_color.g': return
+        case 'fav_color.b':
+          return 'fav-color'
+        case 'birthday.d': return
+        case 'birthday.m':
+          return 'birthday'
+        default:
+          console.warn(`Unsupported chara info key: ${key}`)
+      }
+    })
+    // Filter nilai undefined
+    .filter(key => key)
 }
 
 export default {
@@ -72,42 +179,45 @@ export default {
     CardFullName,
     CardNickName,
     CardJpName,
-    CardThreeSizes
+    CardThreeSizes,
+    CardHeight,
+    CardWeight,
+    CardHairColor,
+    CardEyeColor,
+    CardFavColor,
+    CardGender,
+    CardHairLength,
+    CardAge,
+    CardBirthday,
+    CardHoroscope,
+    CardHometown,
+    CardSkill,
+    CardHobby
   },
   data () {
     return {
       chara: null,
-      charaInfo: null,
-      charaImages: null,
-      cards: [],
+      charaInfo: {},
+      newCards: [],
       selectedCardOption: null
     }
   },
   computed: {
     cardOptions () {
-      return Object.entries(CARD_DICT)
-        .filter(([cardName]) => !this.cards.find(card => card.name === cardName))
-        .map(([cardName, cardData]) => {
-          return {
-            value: cardName,
-            text: cardData.text
-          }
-        })
+      return Object.entries(CARDS)
+        .filter(([name]) => !this.cards.includes(name))
+        .map(([value, { text }]) => ({ value, text }))
+    },
+    charaInfoCards () {
+      return mapInfoKeysToCardName(Object.keys(this.charaInfo))
+    },
+    cards () {
+      return [...new Set([...this.charaInfoCards, ...this.newCards])]
     }
   },
   methods: {
     insertCard () {
-      const name = this.selectedCardOption
-      const newCard = CARD_DICT[name]
-      if (!newCard) {
-        throw new Error(`Unknown card name: ${name}`)
-      }
-
-      this.cards.push({ ...newCard, name })
-    },
-    deleteCard (name) {
-      const index = this.cards.findIndex(card => card.name === card)
-      this.cards.splice(index, 1)
+      this.newCards.push(this.selectedCardOption)
     },
     changeCharaInfo (manyCharaInfo) {
       acall(async () => {
@@ -127,11 +237,12 @@ export default {
           await request(`chara/${charaId}/info`, { info: manyCharaInfo })
         }
 
-        this.fetchCharaInfo()
-        alert('Info berhasil diubah')
+        await this.fetchCharaInfo()
+
+        this.newCards = this.newCards.filter(newCard => !this.charaInfoCards.includes(newCard))
       })
     },
-    deleteCharaInfoAndCard (keyOrKeys, cardName) {
+    deleteCharaInfo (keyOrKeys, cardName) {
       acall(async () => {
         const { charaId } = this.$route.params
 
@@ -140,14 +251,16 @@ export default {
           await request(`chara/${charaId}/info`, { keys }, 'delete')
         } else {
           const key = keyOrKeys
-          await request(`chara/${charaId}/info/${key}`, undefined, 'delete')
+          if (typeof this.charaInfo[key] !== 'undefined') {
+            await request(`chara/${charaId}/info/${key}`, undefined, 'delete')
+          }
         }
 
-        this.fetchCharaInfo()
-
-        this.deleteCard(cardName)
-        alert('Info berhasil dihapus')
+        await this.fetchCharaInfo()
       })
+    },
+    getCardText (card) {
+      return CARDS[card].text
     },
     async fetchChara () {
       const { charaId } = this.$route.params
@@ -156,54 +269,10 @@ export default {
     async fetchCharaInfo () {
       const { charaId } = this.$route.params
       this.charaInfo = await request(`chara/${charaId}/info`)
-    },
-    async fetchCharaImages () {
-      const { charaId } = this.$route.params
-      this.charaImages = await request(`chara/${charaId}/image`)
     }
   },
   created () {
-    acall([
-      async () => this.fetchChara(),
-      async () => {
-        await this.fetchCharaInfo()
-
-        for (const [key, value] of Object.entries(this.charaInfo)) {
-          let card = {}
-
-          // TODO initialValue dihapus saja, diganti dengan langsung baca charaInfo
-          switch (key) {
-            case 'full_name':
-              card.name = 'full-name'
-              card.initialValue = value
-              break
-            case 'nick_name':
-              card.name = 'nick-name'
-              card.initialValue = value
-              break
-            case 'jp_name':
-              card.name = 'jp-name'
-              card.initialValue = value
-              break
-            // Ini kalau info group yang lainnya diskip, cuma pilih salah satu.
-            // Asumsinya dari API dijamin bersih (pasti segrup ada semua).
-            case 'threesizes.b': break
-            case 'threesizes.w': break
-            case 'threesizes.h':
-              card.name = 'three-sizes'
-              break
-            default:
-              console.warn(`Unsupported chara info key: ${key}`)
-              break
-          }
-
-          if (card.name) {
-            Object.assign(card, CARD_DICT[card.name])
-            this.cards.push(card)
-          }
-        }
-      }
-    ])
+    acall([this.fetchChara(), this.fetchCharaInfo()])
   }
 }
 </script>
@@ -211,7 +280,11 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/include";
 
-.card + .card {
-  margin-top: $spacer;
+.card-columns {
+  @include media-breakpoint-only(xs) { column-count: 1; }
+  @include media-breakpoint-only(sm) { column-count: 1; }
+  @include media-breakpoint-only(md) { column-count: 1; }
+  @include media-breakpoint-only(lg) { column-count: 2; }
+  @include media-breakpoint-only(xl) { column-count: 2; }
 }
 </style>

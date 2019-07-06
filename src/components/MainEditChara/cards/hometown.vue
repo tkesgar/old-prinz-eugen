@@ -1,20 +1,19 @@
 <template>
   <base-card
     v-on="$listeners"
-    title="Nama panggilan"
-    delete-key="nick_name"
+    title="Asal"
+    delete-key="hometown"
   >
     <b-form @submit.prevent="handleSubmit">
       <b-input-group>
+        <b-form-input
+          required
+          v-model="hometown"
+          type="text"
+        />
         <template v-slot:append>
           <b-button type="submit">Ubah</b-button>
         </template>
-        <b-form-input
-          required
-          v-model="nickName"
-          id="MainEditChara_nickName"
-          type="text"
-        />
       </b-input-group>
     </b-form>
   </base-card>
@@ -35,12 +34,12 @@ export default {
   },
   data () {
     return {
-      nickName: this.charaInfo['nick_name']
+      hometown: this.charaInfo['hometown']
     }
   },
   methods: {
     handleSubmit () {
-      this.$emit('change-chara-info', { 'nick_name': this.nickName })
+      this.$emit('change-chara-info', { 'hometown': this.hometown })
     }
   }
 }
