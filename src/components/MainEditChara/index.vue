@@ -113,7 +113,7 @@ const CARDS = {
     text: 'Keahlian'
   },
   'hobby': {
-    text: 'hobby'
+    text: 'Hobi'
   }
 }
 
