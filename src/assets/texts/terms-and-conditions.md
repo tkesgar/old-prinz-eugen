@@ -1,3 +1,0 @@
-# Persetujuan dan Kondisi
-
-*TBD*

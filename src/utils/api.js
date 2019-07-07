@@ -16,6 +16,27 @@ export class APIError extends Error {
   }
 }
 
+export async function get (path, params = null) {
+  const opts = {}
+
+  if (params) {
+    opts.searchParams = new URLSearchParams(params)
+  }
+
+  try {
+    const response = await api.get(path, opts)
+    return response.json()
+  } catch (error) {
+    if (error instanceof HTTPError) {
+      if (error.response.status === 404) {
+        return false
+      }
+    }
+
+    throw error
+  }
+}
+
 // TODO Refactor yang udah pakai request ._.
 export async function request (path, body, method, opts = {}) {
   const hasBody = typeof body !== 'undefined'

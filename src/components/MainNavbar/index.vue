@@ -30,7 +30,7 @@ export default {
       acall(async () => {
         await request('auth/logout')
 
-        this.$store.commit('setUser', { user: null })
+        this.$store.commit('setUser', null)
         this.$router.push('/')
       })
     },

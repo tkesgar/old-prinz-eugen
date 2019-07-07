@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from './views/Index'
-import TermsOfServices from './views/TermsOfServices'
-import PrivacyPolicy from './views/PrivacyPolicy'
-import NotFound from './views/NotFound'
-import Callback from './views/Callback'
-import Home from './views/Home'
-import EditChara from './views/EditChara'
+import PageCallback from './components/PageCallback'
+import PageNotFound from './components/PageNotFound'
+import PageTermsOfServices from './components/PageTermsOfServices'
+import PagePrivacyPolicy from './components/PagePrivacyPolicy'
+import PageIndex from './components/PageIndex'
+import PageChara from './components/PageChara'
+import PageForbidden from './components/PageForbidden'
+import MainCharaView from './components/MainCharaView'
+import MainCharaEdit from './components/MainCharaEdit'
+import MainCharaEditProfile from './components/MainCharaEditProfile'
+import MainCharaEditImages from './components/MainCharaEditImages'
 
 Vue.use(Router)
 
@@ -15,6 +19,7 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    /*
     {
       path: '/',
       component: Index
@@ -27,21 +32,63 @@ export default new Router({
       path: '/chara/:charaId/edit',
       component: EditChara
     },
+    */
+    {
+      path: '/chara/:charaId',
+      component: PageChara,
+      props: route => {
+        return {
+          charaId: parseInt(route.params.charaId, 10)
+        }
+      },
+      children: [
+        {
+          path: '',
+          component: MainCharaView
+        },
+        {
+          path: 'edit',
+          component: MainCharaEdit,
+          children: [
+            {
+              path: '',
+              redirect: 'profile'
+            },
+            {
+              path: 'profile',
+              component: MainCharaEditProfile
+            },
+            {
+              path: 'images',
+              component: MainCharaEditImages
+            }
+          ]
+        }
+      ]
+    },
+    {
+      path: '/',
+      component: PageIndex
+    },
     {
       path: '/tos',
-      component: TermsOfServices
+      component: PageTermsOfServices
     },
     {
       path: '/privacy',
-      component: PrivacyPolicy
+      component: PagePrivacyPolicy
     },
     {
       path: '/_callback',
-      component: Callback
+      component: PageCallback
+    },
+    {
+      path: '/403',
+      component: PageForbidden
     },
     {
       path: '*',
-      component: NotFound
+      component: PageNotFound
     }
   ]
 })

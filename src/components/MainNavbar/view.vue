@@ -1,7 +1,7 @@
 <template>
   <b-navbar type="dark" variant="dark">
     <b-navbar-brand to="/">
-      Prinz Eugen <sup>alpha</sup>
+      Prinz Eugen <sup>pre-alpha</sup>
     </b-navbar-brand>
     <b-navbar-nav v-if="user">
       <b-nav-item-dropdown left>
