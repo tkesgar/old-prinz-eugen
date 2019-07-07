@@ -227,11 +227,17 @@ export default {
         if (existingCharaInfo) {
           await Promise.all(
             Object.entries(manyCharaInfo).map(async ([key, value]) => {
-              await request(`chara/${charaId}/info/${key}`, { value }, 'put')
+              await request(`chara/${charaId}/info/${key}`, {
+                method: 'put',
+                json: { value }
+              })
             })
           )
         } else {
-          await request(`chara/${charaId}/info`, { info: manyCharaInfo })
+          await request(`chara/${charaId}/info`, {
+            method: 'post',
+            json: { info: manyCharaInfo }
+          })
         }
 
         await this.fetchCharaInfo()
@@ -245,11 +251,16 @@ export default {
 
         if (Array.isArray(keyOrKeys)) {
           const keys = keyOrKeys
-          await request(`chara/${charaId}/info`, { keys }, 'delete')
+          await request(`chara/${charaId}/info`, {
+            method: 'delete',
+            json: { keys }
+          })
         } else {
           const key = keyOrKeys
           if (typeof this.charaInfo[key] !== 'undefined') {
-            await request(`chara/${charaId}/info/${key}`, undefined, 'delete')
+            await request(`chara/${charaId}/info/${key}`, {
+              method: 'delete'
+            })
           }
         }
 

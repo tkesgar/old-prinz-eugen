@@ -90,10 +90,17 @@ export default {
         formData.append('image', this.file)
 
         if (this.charaImages[this.imageType]) {
-          await request(`chara/${this.charaId}/image/${this.imageType}`, undefined, 'put', { body: formData })
+          await request(`chara/${this.charaId}/image/${this.imageType}`, {
+            method: 'put',
+            body: formData
+          })
         } else {
           formData.append('type', this.imageType)
-          await request(`chara/${this.charaId}/image`, undefined, 'post', { body: formData })
+
+          await request(`chara/${this.charaId}/image`, {
+            method: 'post',
+            body: formData
+          })
         }
 
         this.file = null
@@ -102,7 +109,9 @@ export default {
     },
     handleDelete () {
       acall(async () => {
-        await request(`chara/${this.charaId}/image/${this.imageType}`, undefined, 'delete')
+        await request(`chara/${this.charaId}/image/${this.imageType}`, {
+          method: 'delete'
+        })
 
         this.$emit('chara-image-update')
       })

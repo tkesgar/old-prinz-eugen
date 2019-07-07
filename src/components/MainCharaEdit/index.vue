@@ -1,5 +1,5 @@
 <template>
-  <b-container class="my-4" v-on="$listeners">
+  <b-container class="my-4">
     <div class="mb-3">
       <b-tabs pills>
         <b-tab
@@ -11,12 +11,34 @@
         />
       </b-tabs>
     </div>
-    <router-view :chara="chara" />
+    <router-view
+      :chara="chara"
+      @refresh-chara="$emit('refresh-chara')"
+    />
   </b-container>
 </template>
 
 <script>
 import { getUser } from '../../store'
+
+const TABS = [
+  {
+    name: 'profile',
+    title: 'Profil'
+  },
+  {
+    name: 'images',
+    title: 'Gambar'
+  },
+  {
+    name: 'bio',
+    title: 'Biografi'
+  },
+  {
+    name: 'delete',
+    title: 'Hapus karakter'
+  }
+]
 
 export default {
   props: {
@@ -26,18 +48,7 @@ export default {
     }
   },
   computed: {
-    TABS () {
-      return [
-        {
-          name: 'profile',
-          title: 'Profil'
-        },
-        {
-          name: 'images',
-          title: 'Gambar'
-        }
-      ]
-    }
+    TABS: () => TABS
   },
   beforeRouteEnter (to, from, next) {
     const user = getUser()

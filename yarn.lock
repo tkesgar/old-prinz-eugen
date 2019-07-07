@@ -667,12 +667,47 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@editorjs/delimiter@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/delimiter/-/delimiter-1.1.0.tgz#f61808ea92e4e289607d54441964f1cb8605410a"
+  integrity sha512-0G36vEvvb94g6nu/qs2rVjC/qjxLnY20OfOgxROKSOOXzS7xnkTij5raeIxRiYueeLL5fMrzrvtFH7wclfxF+g==
+
 "@editorjs/editorjs@^2.14.0":
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/@editorjs/editorjs/-/editorjs-2.14.0.tgz#5f2783b92c675cb2afb223920dc3fdbc6ce96cfb"
   integrity sha512-pVqKk86D98xA91GvSJSyOXLVB0V9bT+vgYF2kT3Ls5EDzrh44uh+JRKZF4wqR6XobOMOvRMZI3GyK1QRK4Yvlw==
   dependencies:
     codex-notifier "^1.1.2"
+
+"@editorjs/header@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/header/-/header-2.3.0.tgz#ce48414e3d8b39b1ed5633d35e3684b158fb9e98"
+  integrity sha512-H3ILtnw3nVYrjj7CkgGAh1UovmRx/AAAzypLbzW7ElUVAbyL4Tx/iIE/SAp4sNbARXmVGin0mgzYqlRQr3hg5w==
+
+"@editorjs/list@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/list/-/list-1.4.0.tgz#e92459a8ac2305bc4385245e329c8b5c8437456a"
+  integrity sha512-iYDXGbVXvsAJbSxbjFMP4p7kS1zhQyNDqVNzkfMRhItulzKYlOMlFjTIGHqu5SxPy6NrcckhVFaWdfGDn5/gEA==
+
+"@editorjs/paragraph@^2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/paragraph/-/paragraph-2.6.0.tgz#49ec5ee2eabe84c57f876eac989df99126df616a"
+  integrity sha512-aOLTX7JXVMNCMYEsEwuUtX0864eGRRMzOJ7h1ZaNdjriSHjz0/2cl9VPQBQtIsOkkSvybGGlbHBtGWbflzZ4aQ==
+
+"@editorjs/quote@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/quote/-/quote-2.3.0.tgz#5585cf93a87a1fd4e0c72ba08c90eb8eb06b518d"
+  integrity sha512-B+4xEXMWiZki2EQDTJRnzMK8hNwpf7vGJtYIxfE4rOuXi5mke3xkKhrD7yPXcZYucVtCnfCVPOmFaQ3ZgiG2Qw==
+
+"@editorjs/simple-image@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@editorjs/simple-image/-/simple-image-1.3.2.tgz#ccdc6a456106979bbbfe13766faa0dd31404fa5d"
+  integrity sha512-qj+q5y6Tl8iamPqy935IFB4LVXaZBbYwpuFA4/9mK3ykJoxpUag4lAF4vu3V4dIiYQ/dXZGXJTEZmN1hslpKUw==
+
+"@editorjs/table@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/table/-/table-1.2.0.tgz#547d7b28c96f8a37605bea10bd4f016e8bfc344d"
+  integrity sha512-pCcNf/9JzVWQw6TsqUHew73UoVSYTftXviKVqsnVazx4/D8eH5g5fsEY5L0LEl9KC0mJMJij+h6I1ge70kDlgg==
 
 "@hapi/address@2.x.x":
   version "2.0.0"

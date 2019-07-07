@@ -11,28 +11,15 @@ import MainCharaView from './components/MainCharaView'
 import MainCharaEdit from './components/MainCharaEdit'
 import MainCharaEditProfile from './components/MainCharaEditProfile'
 import MainCharaEditImages from './components/MainCharaEditImages'
+import MainCharaEditBio from './components/MainCharaEditBio'
+import MainCharaEditDelete from './components/MainCharaEditDelete'
 
 Vue.use(Router)
 
-// TODO Pindahkan route navigation guards ke views
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    /*
-    {
-      path: '/',
-      component: Index
-    },
-    {
-      path: '/home',
-      component: Home
-    },
-    {
-      path: '/chara/:charaId/edit',
-      component: EditChara
-    },
-    */
     {
       path: '/chara/:charaId',
       component: PageChara,
@@ -61,6 +48,14 @@ export default new Router({
             {
               path: 'images',
               component: MainCharaEditImages
+            },
+            {
+              path: 'bio',
+              component: MainCharaEditBio
+            },
+            {
+              path: 'delete',
+              component: MainCharaEditDelete
             }
           ]
         }

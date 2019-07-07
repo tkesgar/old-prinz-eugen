@@ -33,7 +33,10 @@ export default {
           info.nick_name = nickName
         }
 
-        const { id } = await request('chara', { name, info })
+        const { id } = await request('chara', {
+          method: 'post',
+          json: { name, info }
+        })
 
         this.$bvModal.hide(`CreateCharaModal_modal`)
         this.$router.push(`/chara/${id}`)

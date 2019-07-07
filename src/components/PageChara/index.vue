@@ -17,7 +17,7 @@
 <script>
 import BaseDefaultPage from '../BaseDefaultPage'
 import LoadingIndicator from '../LoadingIndicator'
-import { get } from '../../utils/api'
+import { request } from '../../utils/api'
 import { acall } from '../../utils'
 
 export default {
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     async fetchChara () {
-      this.chara = await get(`chara/${this.charaId}`)
+      this.chara = await request(`chara/${this.charaId}`)
     },
     refreshChara () {
       acall(this.fetchChara())

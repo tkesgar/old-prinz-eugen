@@ -16,65 +16,46 @@ export class APIError extends Error {
   }
 }
 
-export async function get (path, params = null) {
-  const opts = {}
-
-  if (params) {
-    opts.searchParams = new URLSearchParams(params)
-  }
+export async function request (path, opts = {}) {
+  const { method = 'get' } = opts
 
   try {
-    const response = await api.get(path, opts)
-    return response.json()
+    const response = await api(path, {
+      headers: { 'X-CSRF-Token': await _getCSRFToken() },
+      ...opts
+    })
+
+    switch (response.status) {
+      case 204:
+      case 205:
+        return
+      default:
+        return response.json()
+    }
   } catch (error) {
     if (error instanceof HTTPError) {
-      if (error.response.status === 404) {
-        return false
+      const { response } = error
+      const { status } = response
+
+      switch (status) {
+        case 400:
+        case 500:
+        {
+          const { message, code, data } = await response.json()
+          throw new APIError(message, code, data, status === 400)
+        }
+        case 404:
+          if (method.toLowerCase() === 'get') {
+            return false
+          }
+
+          break
+        default:
+          break
       }
     }
 
     throw error
-  }
-}
-
-// TODO Refactor yang udah pakai request ._.
-export async function request (path, body, method, opts = {}) {
-  const hasBody = typeof body !== 'undefined'
-
-  try {
-    const response = await api(path, {
-      method: method || (hasBody ? 'post' : 'get'),
-      headers: {
-        'X-CSRF-Token': await _getCSRFToken()
-      },
-      ...(() => {
-        if (!hasBody) {
-          return {}
-        }
-
-        const withBody = ['get', 'head'].includes(method)
-        return { [withBody ? 'searchParams' : 'json']: body }
-      })(),
-      ...opts
-    })
-
-    if (response.status === 204) {
-      return
-    }
-
-    return response.json()
-  } catch (err) {
-    if (err instanceof HTTPError) {
-      const { status } = err.response
-      const isClientError = status === 400
-      const isServerError = status === 500
-      if (isClientError || isServerError) {
-        const { message, code, data } = await err.response.json()
-        throw new APIError(message, code, data, isClientError)
-      }
-    }
-
-    throw err
   }
 }
 
