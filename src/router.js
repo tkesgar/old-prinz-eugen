@@ -7,6 +7,7 @@ import PagePrivacyPolicy from './components/PagePrivacyPolicy'
 import PageIndex from './components/PageIndex'
 import PageChara from './components/PageChara'
 import PageForbidden from './components/PageForbidden'
+import PageLogin from './components/PageLogin'
 import MainCharaView from './components/MainCharaView'
 import MainCharaEdit from './components/MainCharaEdit'
 import MainCharaEditProfile from './components/MainCharaEditProfile'
@@ -76,6 +77,10 @@ export default new Router({
     {
       path: '/_callback',
       component: PageCallback
+    },
+    {
+      path: '/login',
+      component: PageLogin
     },
     {
       path: '/403',

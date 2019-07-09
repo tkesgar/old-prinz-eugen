@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 const SESSION_KEY = process.env.VUE_APP_SESSION_KEY
-const VERSION = process.env.VUE_APP_BUILD_ID
+const VERSION = process.env.VUE_APP_COMMIT
 
 function loadState (defaultState = {}) {
   if (!sessionStorage) {

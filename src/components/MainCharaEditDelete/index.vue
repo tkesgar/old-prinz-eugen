@@ -2,8 +2,7 @@
   <div class="chara-edit-delete mx-auto py-4">
     <h1>Hapus karakter</h1>
     <b-alert show variant="danger">
-      <b>Seluruh data karakter Anda akan dihapus.</b> Pastikan Anda sudah menyimpan data karakter
-      Anda sebelum melakukan penghapusan.
+      <b>Seluruh data karakter Anda akan dihapus.</b>
     </b-alert>
     <p>
       Untuk mengkonfirmasi penghapusan karakter, masukkan nama halaman karakter Anda

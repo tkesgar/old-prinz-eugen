@@ -103,7 +103,7 @@ const CARDS = {
     text: 'Usia'
   },
   'birthday': {
-    text: 'Ulang tahun'
+    text: 'Tanggal lahir'
   },
   'horoscope': {
     text: 'Horoskop'
@@ -222,7 +222,7 @@ export default {
 
         // Asumsi card perilakunya baik, jadi cuma periksa key pertama
         const [key] = Object.keys(manyCharaInfo)
-        const existingCharaInfo = Boolean(this.charaInfo[key])
+        const existingCharaInfo = typeof this.charaInfo[key] !== 'undefined'
 
         if (existingCharaInfo) {
           await Promise.all(

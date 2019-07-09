@@ -3,6 +3,11 @@
     <div class="mb-3">
       <b-tabs pills>
         <b-tab
+          title="← Kembali"
+          :active="false"
+          @click="goToCharaPage"
+        />
+        <b-tab
           v-for="tab in TABS"
           :key="tab.name"
           :title="tab.title"
@@ -49,6 +54,11 @@ export default {
   },
   computed: {
     TABS: () => TABS
+  },
+  methods: {
+    goToCharaPage () {
+      this.$router.push(`/chara/${this.chara.id}`)
+    }
   },
   beforeRouteEnter (to, from, next) {
     const user = getUser()

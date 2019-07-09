@@ -19,7 +19,6 @@ import List from '@editorjs/list'
 import Quote from '@editorjs/quote'
 import SimpleImage from '@editorjs/simple-image'
 import Delimiter from '@editorjs/delimiter'
-import Table from '@editorjs/table'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 
@@ -82,12 +81,11 @@ export default {
       holder: 'MainCharaEditBio_editor',
       placeholder: 'Tuliskan biografi karakter Anda...',
       tools: {
-        header: Header,
-        list: List,
-        quote: Quote,
-        simpleImage: SimpleImage,
-        delimiter: Delimiter,
-        table: Table
+        'header': Header,
+        'list': List,
+        'quote': Quote,
+        'delimiter': Delimiter,
+        'simple-image': SimpleImage,
       },
       data: this.chara.bio || {}
     })

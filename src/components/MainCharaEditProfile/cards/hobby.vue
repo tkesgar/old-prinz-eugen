@@ -1,7 +1,7 @@
 <template>
   <base-card
     v-on="$listeners"
-    title="Hobby"
+    title="Hobi"
     delete-key="hobby"
   >
     <b-form @submit.prevent="handleSubmit">
