@@ -22,7 +22,7 @@ export function testTruthy (value) {
 
 export function and (values, test = testDefined) {
   for (const value of values) {
-    if (test(value)) {
+    if (!test(value)) {
       return false
     }
   }

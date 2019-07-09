@@ -307,7 +307,7 @@ export default {
       if (height) {
         list.push({
           key: 'height',
-          label: 'Tinggi',
+          label: 'Tinggi badan',
           content: appendUnit(height, 'cm')
         })
       }
@@ -315,10 +315,13 @@ export default {
       if (weight) {
         list.push({
           key: 'weight',
-          label: 'Berat',
+          label: 'Berat badan',
           content: appendUnit(weight, 'kg')
         })
       }
+
+      console.log(threesizesB, threesizesW, threesizesH)
+      console.log(and([threesizesB, threesizesW, threesizesH]))
 
       if (and([threesizesB, threesizesW, threesizesH])) {
         list.push({
