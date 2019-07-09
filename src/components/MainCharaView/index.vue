@@ -4,25 +4,28 @@
       <loading-indicator />
     </div>
     <template v-else>
-      <b-row class="py-4">
-        <b-col md="8" lg="9" order="2" order-md="1">
-          <block-renderer :data="chara.bio" />
-        </b-col>
-        <b-col md="4" lg="3" order="1" order-md="2">
-          <chara-sidebar
-            :chara="chara"
-            :profile="profile"
-            :images="images"
-          />
-          <b-card v-if="charaOwner" header="Menu karakter" class="mt-3" no-body>
-            <b-list-group flush>
-              <b-list-group-item :to="`/chara/${chara.id}/edit`">
-                Ubah data karakter
-              </b-list-group-item>
-            </b-list-group>
-          </b-card>
-        </b-col>
-      </b-row>
+      <div class="py-4">
+        <div class="title">{{ displayName }}</div>
+        <b-row>
+          <b-col md="8" lg="9" order="2" order-md="1">
+            <block-renderer :data="chara.bio" />
+          </b-col>
+          <b-col md="4" lg="3" order="1" order-md="2">
+            <chara-sidebar
+              :chara="chara"
+              :profile="profile"
+              :images="images"
+            />
+            <b-card v-if="charaOwner" header="Menu karakter" class="mt-3" no-body>
+              <b-list-group flush>
+                <b-list-group-item :to="`/chara/${chara.id}/edit`">
+                  Ubah data karakter
+                </b-list-group-item>
+              </b-list-group>
+            </b-card>
+          </b-col>
+        </b-row>
+      </div>
     </template>
   </b-container>
 </template>
@@ -58,6 +61,9 @@ export default {
     ...mapState(['user']),
     charaOwner () {
       return this.user.id === this.chara.userId
+    },
+    displayName () {
+      return this.profile['full_name'] || this.profile['nick_name'] || this.profile['jp_name'] || this.chara.name
     }
   },
   mounted () {
@@ -78,3 +84,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.title {
+  font-size: 4rem;
+}
+</style>

@@ -135,6 +135,6 @@ export default {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 300px;
+  max-height: 50vh;
 }
 </style>

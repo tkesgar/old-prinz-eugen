@@ -85,7 +85,7 @@ export default {
         'list': List,
         'quote': Quote,
         'delimiter': Delimiter,
-        'simple-image': SimpleImage,
+        'simple-image': SimpleImage
       },
       data: this.chara.bio || {}
     })
