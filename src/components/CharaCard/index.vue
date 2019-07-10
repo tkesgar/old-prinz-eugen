@@ -1,7 +1,7 @@
 <template>
   <b-link :to="`/chara/${chara.id}`" class="chara-card">
     <b-card no-body>
-      <loading-indicator v-if="!ready" />
+      <loading-indicator v-if="!ready" class="m-5" />
       <template v-else>
         <img :src="displayImage" :alt="displayName" class="chara-card-image" />
         <div class="chara-card-name">

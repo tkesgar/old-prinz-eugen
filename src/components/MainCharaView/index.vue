@@ -15,8 +15,9 @@
               :chara="chara"
               :profile="profile"
               :images="images"
+              class="mb-3"
             />
-            <b-card v-if="charaOwner" header="Menu karakter" class="mt-3" no-body>
+            <b-card v-if="charaOwner" header="Menu karakter" class="mb-3" no-body>
               <b-list-group flush>
                 <b-list-group-item :to="`/chara/${chara.id}/edit`">
                   Ubah data karakter
