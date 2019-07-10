@@ -5,10 +5,10 @@
     </div>
     <template v-else>
       <div class="py-4">
-        <div class="title">{{ displayName }}</div>
         <b-row>
           <b-col md="8" lg="9" order="2" order-md="1">
-            <block-renderer :data="chara.bio" />
+            <h1>{{ displayName }}</h1>
+            <block-renderer v-if="chara.bio" :data="chara.bio" />
           </b-col>
           <b-col md="4" lg="3" order="1" order-md="2">
             <chara-sidebar
@@ -84,9 +84,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.title {
-  font-size: 4rem;
-}
-</style>
