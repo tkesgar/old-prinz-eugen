@@ -320,9 +320,6 @@ export default {
         })
       }
 
-      console.log(threesizesB, threesizesW, threesizesH)
-      console.log(and([threesizesB, threesizesW, threesizesH]))
-
       if (and([threesizesB, threesizesW, threesizesH])) {
         list.push({
           key: 'threesizes',
