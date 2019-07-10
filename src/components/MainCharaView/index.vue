@@ -60,7 +60,7 @@ export default {
   computed: {
     ...mapState(['user']),
     charaOwner () {
-      return this.user.id === this.chara.userId
+      return this.user && this.user.id === this.chara.userId
     },
     displayName () {
       return this.profile['full_name'] || this.profile['nick_name'] || this.profile['jp_name'] || this.chara.name
