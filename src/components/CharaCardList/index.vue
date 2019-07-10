@@ -1,11 +1,14 @@
 <template>
-  <div class="chara-card-list">
-    <chara-card
+  <b-row>
+    <b-col
       v-for="chara in charas"
       :key="chara.id"
-      :chara="chara"
-    />
-  </div>
+      cols="4"
+      md="3"
+    >
+      <chara-card :chara="chara" class="my-3" />
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -23,10 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.chara-card-list {
-  display: flex;
-  align-items: flex-start;
-}
-</style>

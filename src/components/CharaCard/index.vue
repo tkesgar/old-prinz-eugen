@@ -74,10 +74,7 @@ export default {
 
 .chara-card {
   width: 100%;
-  max-width: 200px;
-  display: inline-block;
-  flex: 0 0 auto;
-  margin: map-get($spacers, 1);
+  display: block;
 
   &:hover {
     text-decoration: none;
@@ -96,7 +93,7 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: map-get($spacers, 2);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: lighter;
   text-align: center;
 }
