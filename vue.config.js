@@ -16,15 +16,5 @@ module.exports = {
         .use('markdown')
           .loader('markdown-loader')
           .end()
-  },
-  devServer: {
-    proxy: {
-      '^/api': {
-        target: process.env.DEV_API_SERVER,
-        pathRewrite: {
-          '^/api': '/'
-        }
-      }
-    }
   }
 }
