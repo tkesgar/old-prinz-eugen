@@ -2,3 +2,11 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  
+[[redirects]]
+  from = "http://eloquent-hugle-a260c6.netlify.com/*"
+  to = "https://prinz-eugen.tkesgar.com/:splat"
+
+[[redirects]]
+  from = "https://eloquent-hugle-a260c6.netlify.com/*"
+  to = "https://prinz-eugen.tkesgar.com/:splat"
