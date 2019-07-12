@@ -1,4 +1,3 @@
-const generateToken = require('./lib/generate-token')
 const getCommitHash = require('./lib/get-commit-hash')
 
 Object.assign(process.env, {
@@ -6,15 +5,15 @@ Object.assign(process.env, {
 })
 
 module.exports = {
-  chainWebpack(config) {
+  chainWebpack (config) {
     config.module
       .rule('markdown')
-        .test(/\.md$/)
-        .use('html')
-          .loader('html-loader')
-          .end()
-        .use('markdown')
-          .loader('markdown-loader')
-          .end()
+      .test(/\.md$/)
+      .use('html')
+      .loader('html-loader')
+      .end()
+      .use('markdown')
+      .loader('markdown-loader')
+      .end()
   }
 }
