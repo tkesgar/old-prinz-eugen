@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import PageCallback from './components/PageCallback'
 import PageNotFound from './components/PageNotFound'
-import PageTermsOfServices from './components/PageTermsOfServices'
+import PageTermsAndConditions from './components/PageTermsAndConditions'
 import PagePrivacyPolicy from './components/PagePrivacyPolicy'
 import PageIndex from './components/PageIndex'
 import PageChara from './components/PageChara'
@@ -67,8 +67,8 @@ export default new Router({
       component: PageIndex
     },
     {
-      path: '/tos',
-      component: PageTermsOfServices
+      path: '/terms',
+      component: PageTermsAndConditions
     },
     {
       path: '/privacy',
