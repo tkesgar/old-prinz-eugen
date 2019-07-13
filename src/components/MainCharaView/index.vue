@@ -2,12 +2,12 @@
   <b-container>
     <loading-indicator v-if="!ready" />
     <template v-else>
-      <div class="mb-5">
-        <h1 class="main-heading text-center">{{ displayName }}</h1>
+      <div class="mb-5 header">
+        <h1 class="heading">{{ displayName }}</h1>
       </div>
 
       <b-row>
-        <b-col lg="3">
+        <b-col lg="3" order="1" order-lg="1" class="mb-4 mb-lg-0">
           <chara-sidebar
             :chara="chara"
             :profile="profile"
@@ -15,11 +15,11 @@
           />
         </b-col>
 
-        <b-col lg="6" class="mt-4 mt-lg-0">
+        <b-col lg="6" order="3" order-lg="2" class="mt-4 mt-lg-0">
           <block-renderer v-if="chara.bio" :data="chara.bio" />
         </b-col>
 
-        <b-col lg="3">
+        <b-col lg="3" order="2" order-lg="3">
           <b-card v-if="charaOwner" header="Menu karakter" class="mb-3" no-body>
             <b-list-group flush>
               <b-list-group-item :to="`/chara/${chara.id}/edit`">
@@ -93,7 +93,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-heading {
+@import "../../styles/include";
+
+.header {
+  border-bottom: $hr-border-width solid $hr-border-color;
+}
+
+.heading {
   font-size: 4rem;
   font-weight: lighter;
 }
