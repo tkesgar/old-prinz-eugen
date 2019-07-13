@@ -1,28 +1,30 @@
 <template>
-  <base-default-page>
-    <loading-indicator v-if="loading" class="py-5 px-3" />
-    <template v-else>
-      <div class="text-center text-muted py-5 px-3" v-if="notFound">
-        Karakter tidak ada.
-      </div>
-      <router-view
-        v-else
-        :chara="chara"
-        @refresh-chara="refreshChara"
-      />
-    </template>
-  </base-default-page>
+  <base-page-default>
+    <div class="py-5">
+      <loading-indicator v-if="loading" />
+      <template v-else>
+        <div class="text-center text-muted" v-if="charaNotFound">
+          Karakter tidak ada.
+        </div>
+        <router-view
+          v-else
+          :chara="chara"
+          @refresh="handleRefresh"
+        />
+      </template>
+    </div>
+  </base-page-default>
 </template>
 
 <script>
-import BaseDefaultPage from '../BaseDefaultPage'
+import BasePageDefault from '../BasePageDefault'
 import LoadingIndicator from '../LoadingIndicator'
 import { request } from '../../utils/api'
 import { acall } from '../../utils'
 
 export default {
   components: {
-    BaseDefaultPage,
+    BasePageDefault,
     LoadingIndicator
   },
   props: {
@@ -40,7 +42,7 @@ export default {
     loading () {
       return this.chara === null
     },
-    notFound () {
+    charaNotFound () {
       return this.chara === false
     }
   },
@@ -48,7 +50,7 @@ export default {
     async fetchChara () {
       this.chara = await request(`chara/${this.charaId}`)
     },
-    refreshChara () {
+    handleRefresh () {
       acall(this.fetchChara())
     }
   },

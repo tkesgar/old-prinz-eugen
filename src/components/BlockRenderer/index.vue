@@ -1,39 +1,30 @@
 <template>
   <div>
     <component
-      v-for="(block, i) of blocks"
+      v-for="(block, i) of data.blocks"
       :key="getComponentKey(i)"
-      :is="`block-${block.type}`"
+      :is="`block-renderer-${block.type}`"
       :data="block.data"
     />
   </div>
 </template>
 
 <script>
-import BlockParagraph from './block/paragraph'
-import BlockHeader from './block/header'
-import BlockList from './block/list'
-import BlockQuote from './block/quote'
-import BlockDelimiter from './block/delimiter'
-import BlockSimpleImage from './block/simple-image'
-
-const SUPPORTED_BLOCKS = [
-  'paragraph',
-  'header',
-  'list',
-  'quote',
-  'delimiter',
-  'simple-image'
-]
+import BlockRendererParagraph from '../BlockRendererParagraph'
+import BlockRendererHeader from '../BlockRendererHeader'
+import BlockRendererList from '../BlockRendererList'
+import BlockRendererQuote from '../BlockRendererQuote'
+import BlockRendererDelimiter from '../BlockRendererDelimiter'
+import BlockRendererSimpleImage from '../BlockRendererSimpleImage'
 
 export default {
   components: {
-    BlockParagraph,
-    BlockHeader,
-    BlockList,
-    BlockQuote,
-    BlockDelimiter,
-    BlockSimpleImage
+    BlockRendererParagraph,
+    BlockRendererHeader,
+    BlockRendererList,
+    BlockRendererQuote,
+    BlockRendererDelimiter,
+    BlockRendererSimpleImage
   },
   props: {
     data: {
@@ -41,24 +32,9 @@ export default {
       required: true
     }
   },
-  computed: {
-    blocks () {
-      return this.data.blocks
-        .filter(block => {
-          const { type } = block
-
-          if (!SUPPORTED_BLOCKS.includes(type)) {
-            console.warn(`Block '${type}' is not supported; the content will be skipped.`)
-            return false
-          }
-
-          return true
-        })
-    }
-  },
   methods: {
     getComponentKey (i) {
-      return `block-${this.data.time}_${i}`
+      return `block-${this.data.time}-${i}`
     }
   }
 }

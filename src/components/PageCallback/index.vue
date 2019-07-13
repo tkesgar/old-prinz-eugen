@@ -13,6 +13,12 @@ export default {
   components: {
     LoadingIndicator
   },
+  props: {
+    action: {
+      type: String,
+      required: true
+    }
+  },
   methods: {
     async auth () {
       this.$store.commit('setUser', await getUser())
@@ -25,17 +31,15 @@ export default {
   },
   created () {
     acall(async () => {
-      // TODO Rename info -> action (ini di back-end)
-      const { action } = this.$route.query
-
-      const fn = this[action]
-      if (!fn) {
-        console.warn(`Unknown action: ${action}; redirect to index page.`)
-        this.$router.replace('/')
-        return
+      switch (this.action) {
+        case 'auth':
+          await this.auth()
+          break
+        default:
+          console.warn(`Unknown action: ${this.action}; redirect to index page.`)
+          this.$router.replace('/')
+          break
       }
-
-      await fn()
     })
   }
 }

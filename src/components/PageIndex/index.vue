@@ -1,19 +1,19 @@
 <template>
-  <base-default-page>
+  <base-page-default>
     <main-landing v-if="!user" />
     <main-dashboard v-else :user="user" />
-  </base-default-page>
+  </base-page-default>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import BaseDefaultPage from '../BaseDefaultPage'
+import BasePageDefault from '../BasePageDefault'
 import MainLanding from '../MainLanding'
 import MainDashboard from '../MainDashboard'
 
 export default {
   components: {
-    BaseDefaultPage,
+    BasePageDefault,
     MainLanding,
     MainDashboard
   },

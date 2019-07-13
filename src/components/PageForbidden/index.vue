@@ -3,24 +3,13 @@
     <div class="py-5 text-center">
       <h1>403</h1>
       <p>Ups, Anda tidak boleh mengakses halaman tersebut.</p>
-      <b-button variant="link" @click="goHome">Kembali ke halaman utama</b-button>
+      <b-link to="/">Kembali ke halaman utama</b-link>
     </div>
   </b-container>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      path: window.location.pathname
-    }
-  },
-  methods: {
-    goHome () {
-      this.$router.replace('/')
-    }
-  }
-}
+export default { }
 </script>
 
 <style lang="scss" scoped>

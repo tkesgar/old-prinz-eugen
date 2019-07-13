@@ -16,10 +16,6 @@ $h4-font-size: 1.4em;
 $h5-font-size: 1.2em;
 $h6-font-size: 1.0em;
 
-$enable-responsive-font-sizes: true;
-
 @import "~bootstrap/scss/variables";
 
 @import "~bootstrap/scss/mixins";
-
-@import "mixins";

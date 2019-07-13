@@ -1,8 +1,8 @@
 <template>
-  <div class="root py-4">
-    <ul>
+  <div class="py-4 text-center text-muted">
+    <ul class="p-0 mb-3">
       <li>
-        <a href="https://github.com/tkesgar/prinz-eugen" target="_blank">prinz-eugen</a>#<a :href="`https://github.com/tkesgar/prinz-eugen/commit/${commit}`" target="_blank">{{ commit }}</a>
+        <b-link href="https://github.com/tkesgar/prinz-eugen" target="_blank">prinz-eugen</b-link>#<b-link :href="`https://github.com/tkesgar/prinz-eugen/commit/${commit}`" target="_blank">{{ commit }}</b-link>
       </li>
       <li>
         <b-link to="/tos">Syarat dan Ketentuan</b-link>
@@ -11,7 +11,7 @@
         <b-link to="/privacy">Kebijakan Privasi</b-link>
       </li>
     </ul>
-    <div class="notice text-muted">
+    <div class="notice text-muted px-3">
       Aplikasi ini masih dalam tahap pengembangan. Mohon digunakan dengan bijak.
     </div>
   </div>
@@ -32,15 +32,11 @@ export default {
 
 .root {
   border-top: $hr-border-width solid $hr-border-color;
-  text-align: center;
   font-size: 0.875rem;
-  color: $text-muted;
 }
 
 ul {
   list-style-type: none;
-  padding: 0;
-  margin-bottom: 0.5rem;
 }
 
 @include media-breakpoint-up(sm) {
@@ -49,13 +45,8 @@ ul {
 
     & + li::before {
       content: "|";
-      margin: 0 0.5rem;
+      margin: 0 map-get($spacers, 2);
     }
   }
-}
-
-.notice {
-  font-size: 0.75rem;
-  padding: 0 1rem;
 }
 </style>

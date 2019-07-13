@@ -1,8 +1,8 @@
 export const helperMethods = {
   showModal (name) {
-    this.$bvModal.show(`${name}_modal`)
+    this.$bvModal.show(name)
   },
   hideModal (name) {
-    return this.$bvModal.hide(`${name}_modal`)
+    return this.$bvModal.hide(name)
   }
 }

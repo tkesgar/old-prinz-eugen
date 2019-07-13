@@ -8,6 +8,8 @@ import PageIndex from './components/PageIndex'
 import PageChara from './components/PageChara'
 import PageForbidden from './components/PageForbidden'
 import PageLogin from './components/PageLogin'
+import PageRequireAuth from './components/PageRequireAuth'
+import PageGo from './components/PageGo'
 import MainCharaView from './components/MainCharaView'
 import MainCharaEdit from './components/MainCharaEdit'
 import MainCharaEditProfile from './components/MainCharaEditProfile'
@@ -76,11 +78,34 @@ export default new Router({
     },
     {
       path: '/_callback',
-      component: PageCallback
+      component: PageCallback,
+      props: route => {
+        return {
+          action: route.query.action
+        }
+      }
     },
     {
       path: '/login',
       component: PageLogin
+    },
+    {
+      path: '/go',
+      component: PageGo,
+      props: route => {
+        return {
+          url: route.query.url
+        }
+      }
+    },
+    {
+      path: '/401',
+      component: PageRequireAuth,
+      props: route => {
+        return {
+          next: route.query.next || null
+        }
+      }
     },
     {
       path: '/403',

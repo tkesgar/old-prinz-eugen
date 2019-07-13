@@ -1,9 +1,9 @@
 <template>
-  <b-link :to="`/chara/${chara.id}`" class="chara-card">
+  <b-link :to="`/chara/${chara.id}`" class="chara-card d-block w-100">
     <b-card no-body>
-      <loading-indicator v-if="!ready" class="m-5" />
+      <loading-indicator v-if="!ready" class="text-center py-5" />
       <template v-else>
-        <img :src="displayImage" :alt="displayName" class="chara-card-image" />
+        <b-img fluid-grow :src="displayImage" :alt="displayName" class="chara-card-image" />
         <div class="chara-card-name">
           {{ displayName }}
         </div>
@@ -73,18 +73,10 @@ export default {
 @import '../../styles/include';
 
 .chara-card {
-  width: 100%;
-  display: block;
-
   &:hover {
     text-decoration: none;
     color: currentColor;
   }
-}
-
-.chara-card-image {
-  width: 100%;
-  height: auto;
 }
 
 .chara-card-name {
@@ -93,7 +85,6 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: map-get($spacers, 2);
-  font-size: 1.25rem;
   font-weight: lighter;
   text-align: center;
 }

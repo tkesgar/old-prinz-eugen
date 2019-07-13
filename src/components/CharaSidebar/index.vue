@@ -1,7 +1,12 @@
 <template>
   <b-card no-body>
     <div class="display-name text-center p-1 bg-light">{{ displayName }}</div>
-    <b-img fluid-grow v-if="displayImage" :src="displayImage" />
+    <img
+      v-if="displayImage"
+      :src="displayImage"
+      :alt="displayName"
+      class="profile-image d-block mx-auto my-3 my-md-0"
+    />
     {{/* TODO info-list bisa jadi komponen sendiri */}}
     <ul class="info-list my-1" v-if="basicInfo.length > 0">
       <li
@@ -110,7 +115,7 @@
 </template>
 
 <script>
-import { rgbToHex, hexToRGB } from '../../utils/color'
+import { rgbToHex, getTextColor } from '../../utils/color'
 import { and } from '../../utils'
 
 function appendUnit (value, unit) {
@@ -404,20 +409,20 @@ export default {
     }
   },
   methods: {
-    getTextColor (colorHex, colorDark = '#212529', colorLight = '#fff') {
-      // Diambil dari Bootstrap YIQ
-      const YIQ_THRESHOLD = 150
-      const [r, g, b] = hexToRGB(colorHex)
-
-      const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
-      return yiq >= YIQ_THRESHOLD ? colorDark : colorLight
-    }
+    getTextColor
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../../styles/include";
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  max-height: 600px;
+}
 
 .display-name {
   font-size: 1.25rem;
@@ -429,7 +434,7 @@ export default {
 .info-title {
   font-weight: bolder;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     font-size: 0.75rem;
   }
 }
@@ -442,6 +447,9 @@ export default {
 
   @include media-breakpoint-up(md) {
     text-align: left;
+  }
+
+  @include media-breakpoint-up(lg) {
     font-size: 0.75rem;
   }
 }

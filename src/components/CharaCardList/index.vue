@@ -1,14 +1,13 @@
 <template>
-  <b-row>
-    <b-col
+  <div class="chara-card-list mx-auto">
+    <div
       v-for="chara in charas"
       :key="chara.id"
-      cols="4"
-      md="3"
+      class="chara-card-container"
     >
-      <chara-card :chara="chara" class="my-3" />
-    </b-col>
-  </b-row>
+      <chara-card :chara="chara" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -26,3 +25,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import "../../styles/include";
+
+.chara-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.chara-card-container {
+  flex: 0 0 auto;
+  width: 200px;
+  padding: map-get($spacers, 1);
+}
+</style>

@@ -1,32 +1,34 @@
 <template>
   <b-container>
-    <div v-if="!ready" class="py-5">
-      <loading-indicator />
-    </div>
+    <loading-indicator v-if="!ready" />
     <template v-else>
-      <div class="py-4">
-        <b-row>
-          <b-col md="8" lg="9" order="2" order-md="1">
-            <h1>{{ displayName }}</h1>
-            <block-renderer v-if="chara.bio" :data="chara.bio" />
-          </b-col>
-          <b-col md="4" lg="3" order="1" order-md="2">
-            <chara-sidebar
-              :chara="chara"
-              :profile="profile"
-              :images="images"
-              class="mb-3"
-            />
-            <b-card v-if="charaOwner" header="Menu karakter" class="mb-3" no-body>
-              <b-list-group flush>
-                <b-list-group-item :to="`/chara/${chara.id}/edit`">
-                  Ubah data karakter
-                </b-list-group-item>
-              </b-list-group>
-            </b-card>
-          </b-col>
-        </b-row>
+      <div class="mb-5">
+        <h1 class="main-heading text-center">{{ displayName }}</h1>
       </div>
+
+      <b-row>
+        <b-col lg="3">
+          <chara-sidebar
+            :chara="chara"
+            :profile="profile"
+            :images="images"
+          />
+        </b-col>
+
+        <b-col lg="6" class="mt-4 mt-lg-0">
+          <block-renderer v-if="chara.bio" :data="chara.bio" />
+        </b-col>
+
+        <b-col lg="3">
+          <b-card v-if="charaOwner" header="Menu karakter" class="mb-3" no-body>
+            <b-list-group flush>
+              <b-list-group-item :to="`/chara/${chara.id}/edit`">
+                Ubah data karakter
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
+        </b-col>
+      </b-row>
     </template>
   </b-container>
 </template>
@@ -65,6 +67,10 @@ export default {
     },
     displayName () {
       return this.profile['full_name'] || this.profile['nick_name'] || this.profile['jp_name'] || this.chara.name
+    },
+    fullbodyImage () {
+      const { fullbody } = this.images
+      return fullbody ? fullbody.url : null
     }
   },
   mounted () {
@@ -85,3 +91,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.main-heading {
+  font-size: 4rem;
+  font-weight: lighter;
+}
+</style>

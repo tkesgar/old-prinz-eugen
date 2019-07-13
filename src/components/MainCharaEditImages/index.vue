@@ -2,7 +2,7 @@
   <div>
     <loading-indicator v-if="!charaImages" />
     <div v-else>
-      <image-card
+      <base-main-chara-edit-images-card
         v-for="[imageType, data] in Object.entries(IMAGE_TYPES)"
         :key="imageType"
         :chara-id="chara.id"
@@ -21,7 +21,7 @@
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 import LoadingIndicator from '../LoadingIndicator'
-import ImageCard from './image-card'
+import BaseMainCharaEditImagesCard from '../BaseMainCharaEditImagesCard'
 
 const IMAGE_TYPES = {
   'avatar': {
@@ -38,7 +38,7 @@ const IMAGE_TYPES = {
 export default {
   components: {
     LoadingIndicator,
-    ImageCard
+    BaseMainCharaEditImagesCard
   },
   data () {
     return {

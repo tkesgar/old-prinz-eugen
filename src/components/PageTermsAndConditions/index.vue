@@ -1,17 +1,17 @@
 <template>
-  <base-content-page :unsafe-html-content="CONTENT" />
+  <base-page-content :unsafe-html-content="content" />
 </template>
 
 <script>
 import content from '../../assets/markdown/terms-and-conditions.md'
-import BaseContentPage from '../BaseContentPage'
+import BasePageContent from '../BasePageContent'
 
 export default {
   components: {
-    BaseContentPage
+    BasePageContent
   },
   computed: {
-    CONTENT () {
+    content () {
       return content
     }
   }

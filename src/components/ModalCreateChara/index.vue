@@ -1,11 +1,11 @@
 <template>
   <b-modal
-    id="CreateCharaModal_modal"
+    id="ModalCreateChara"
     title="Buat karakter baru"
     hide-footer
     @hide="reset"
   >
-    <create-chara-modal-form
+    <form-create-chara
       ref="form"
       @submit="handleSubmit"
     />
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import CreateCharaModalForm from './form'
+import FormCreateChara from '../FormCreateChara'
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 
 export default {
   components: {
-    CreateCharaModalForm
+    FormCreateChara
   },
   methods: {
     handleSubmit ({ name, fullName, nickName }) {
@@ -28,7 +28,6 @@ export default {
         if (fullName) {
           info.full_name = fullName
         }
-
         if (nickName) {
           info.nick_name = nickName
         }
@@ -38,7 +37,7 @@ export default {
           json: { name, info }
         })
 
-        this.$bvModal.hide(`CreateCharaModal_modal`)
+        this.$bvModal.hide('ModalCreateChara')
         this.$router.push(`/chara/${id}`)
       })
     },

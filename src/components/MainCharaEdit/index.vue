@@ -18,7 +18,7 @@
     </div>
     <router-view
       :chara="chara"
-      @refresh-chara="$emit('refresh-chara')"
+      @refresh="$emit('refresh')"
     />
   </b-container>
 </template>
@@ -62,9 +62,10 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     const user = getUser()
+    console.log(to)
 
     if (!user) {
-      next('/403')
+      next(`/401?next=${to.path}`)
       return
     }
 

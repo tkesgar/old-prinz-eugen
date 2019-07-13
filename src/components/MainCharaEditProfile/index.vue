@@ -6,7 +6,7 @@
         <div v-if="cards.length > 0" class="card-container card-columns">
           <component
             v-for="card in cards"
-            :is="`card-${card}`"
+            :is="`main-chara-edit-profile-card-${card}`"
             :key="card"
             :id="`MainEditChara_card-${card}`"
             :chara-info="charaInfo"
@@ -47,23 +47,23 @@
 import { acall } from '../../utils'
 import { request } from '../../utils/api'
 import LoadingIndicator from '../LoadingIndicator'
-import CardFullName from './cards/full-name'
-import CardNickName from './cards/nick-name'
-import CardJpName from './cards/jp-name'
-import CardThreeSizes from './cards/three-sizes'
-import CardHeight from './cards/height'
-import CardWeight from './cards/weight'
-import CardHairColor from './cards/hair-color'
-import CardEyeColor from './cards/eye-color'
-import CardFavColor from './cards/fav-color'
-import CardGender from './cards/gender'
-import CardHairLength from './cards/hair-length'
-import CardAge from './cards/age'
-import CardBirthday from './cards/birthday'
-import CardHoroscope from './cards/horoscope'
-import CardHometown from './cards/hometown'
-import CardSkill from './cards/skill'
-import CardHobby from './cards/hobby'
+import MainCharaEditProfileCardFullName from '../MainCharaEditProfileCardFullName'
+import MainCharaEditProfileCardNickName from '../MainCharaEditProfileCardNickName'
+import MainCharaEditProfileCardJpName from '../MainCharaEditProfileCardJpName'
+import MainCharaEditProfileCardThreeSizes from '../MainCharaEditProfileCardThreeSizes'
+import MainCharaEditProfileCardHeight from '../MainCharaEditProfileCardHeight'
+import MainCharaEditProfileCardWeight from '../MainCharaEditProfileCardWeight'
+import MainCharaEditProfileCardHairColor from '../MainCharaEditProfileCardHairColor'
+import MainCharaEditProfileCardEyeColor from '../MainCharaEditProfileCardEyeColor'
+import MainCharaEditProfileCardFavColor from '../MainCharaEditProfileCardFavColor'
+import MainCharaEditProfileCardGender from '../MainCharaEditProfileCardGender'
+import MainCharaEditProfileCardHairLength from '../MainCharaEditProfileCardHairLength'
+import MainCharaEditProfileCardAge from '../MainCharaEditProfileCardAge'
+import MainCharaEditProfileCardBirthday from '../MainCharaEditProfileCardBirthday'
+import MainCharaEditProfileCardHoroscope from '../MainCharaEditProfileCardHoroscope'
+import MainCharaEditProfileCardHometown from '../MainCharaEditProfileCardHometown'
+import MainCharaEditProfileCardSkill from '../MainCharaEditProfileCardSkill'
+import MainCharaEditProfileCardHobby from '../MainCharaEditProfileCardHobby'
 
 const CARDS = {
   'full-name': {
@@ -168,23 +168,23 @@ function mapInfoKeysToCardName (keys) {
 export default {
   components: {
     LoadingIndicator,
-    CardFullName,
-    CardNickName,
-    CardJpName,
-    CardThreeSizes,
-    CardHeight,
-    CardWeight,
-    CardHairColor,
-    CardEyeColor,
-    CardFavColor,
-    CardGender,
-    CardHairLength,
-    CardAge,
-    CardBirthday,
-    CardHoroscope,
-    CardHometown,
-    CardSkill,
-    CardHobby
+    MainCharaEditProfileCardFullName,
+    MainCharaEditProfileCardNickName,
+    MainCharaEditProfileCardJpName,
+    MainCharaEditProfileCardThreeSizes,
+    MainCharaEditProfileCardHeight,
+    MainCharaEditProfileCardWeight,
+    MainCharaEditProfileCardHairColor,
+    MainCharaEditProfileCardEyeColor,
+    MainCharaEditProfileCardFavColor,
+    MainCharaEditProfileCardGender,
+    MainCharaEditProfileCardHairLength,
+    MainCharaEditProfileCardAge,
+    MainCharaEditProfileCardBirthday,
+    MainCharaEditProfileCardHoroscope,
+    MainCharaEditProfileCardHometown,
+    MainCharaEditProfileCardSkill,
+    MainCharaEditProfileCardHobby
   },
   props: {
     chara: {

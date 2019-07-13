@@ -53,7 +53,7 @@ export default {
           method: 'put',
           json: { bio: output }
         })
-        this.$emit('refresh-chara')
+        this.$emit('refresh')
       })
     },
     handleDeleteBio () {
@@ -61,7 +61,7 @@ export default {
         await request(`chara/${this.chara.id}/bio`, {
           method: 'delete'
         })
-        this.$emit('refresh-chara')
+        this.$emit('refresh')
       })
     }
   },

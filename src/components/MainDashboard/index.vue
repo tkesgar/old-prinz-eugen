@@ -1,12 +1,14 @@
 <template>
-  <b-container class="py-4">
-    <loading-indicator v-if="!meChara" />
-    <template v-else>
-      <div v-if="meChara.length === 0" class="text-center text-muted py-4 px-3">
-        Anda belum memiliki karakter.
-      </div>
-      <chara-card-list v-else :charas="meChara" />
-    </template>
+  <b-container>
+    <div class="py-4">
+      <loading-indicator v-if="!meChara" />
+      <template v-else>
+        <div v-if="meChara.length === 0" class="text-center text-muted">
+          Anda belum memiliki karakter.
+        </div>
+        <chara-card-list v-else :charas="meChara" />
+      </template>
+    </div>
   </b-container>
 </template>
 
@@ -34,9 +36,7 @@ export default {
   },
   mounted () {
     acall(async () => {
-      this.meChara = await request('me/chara', {
-        searchParams: new URLSearchParams({ bio: false })
-      })
+      this.meChara = await request('me/chara?bio=false')
     })
   }
 }
