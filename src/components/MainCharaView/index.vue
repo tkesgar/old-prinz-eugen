@@ -20,6 +20,7 @@
         </b-col>
 
         <b-col lg="3" order="2" order-lg="3">
+          <chara-like-card :chara-id="chara.id" :toggleable="user && !charaOwner" class="mb-3" />
           <b-card v-if="charaOwner" header="Menu karakter" class="mb-3" no-body>
             <b-list-group flush>
               <b-list-group-item :to="`/chara/${chara.id}/edit`">
@@ -40,12 +41,14 @@ import { request } from '../../utils/api'
 import LoadingIndicator from '../LoadingIndicator'
 import CharaSidebar from '../CharaSidebar'
 import BlockRenderer from '../BlockRenderer'
+import CharaLikeCard from '../CharaLikeCard'
 
 export default {
   components: {
     LoadingIndicator,
     CharaSidebar,
-    BlockRenderer
+    BlockRenderer,
+    CharaLikeCard
   },
   props: {
     chara: {
