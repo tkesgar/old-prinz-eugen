@@ -1,11 +1,14 @@
 <template>
   <b-link :to="`/chara/${chara.id}`" class="chara-card d-block w-100">
-    <b-card no-body>
+    <b-card no-body class="p-relative">
       <loading-indicator v-if="!ready" class="text-center py-5" />
       <template v-else>
         <b-img fluid-grow :src="displayImage" :alt="displayName" class="chara-card-image" />
         <div class="chara-card-name">
           {{ displayName }}
+        </div>
+        <div v-if="showLikes && likeCount" class="like">
+          ❤︎ {{ likeCount }}
         </div>
       </template>
     </b-card>
@@ -26,13 +29,18 @@ export default {
     chara: {
       type: Object,
       required: true
+    },
+    showLikes: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
       ready: false,
       profile: null,
-      images: null
+      images: null,
+      likeCount: null
     }
   },
   computed: {
@@ -50,6 +58,23 @@ export default {
       return portrait ? portrait.url : placeholderPortrait
     }
   },
+  methods: {
+    fetchLikes () {
+      acall(async () => {
+        const { id: charaId } = this.chara
+
+        const { count } = await request(`chara/${charaId}/like`)
+        this.likeCount = count
+      })
+    }
+  },
+  watch: {
+    showLikes (newValue) {
+      if (newValue && this.likeCount === null) {
+        this.fetchLikes()
+      }
+    }
+  },
   mounted () {
     acall(async () => {
       const { id: charaId } = this.chara
@@ -65,6 +90,10 @@ export default {
 
       this.ready = true
     })
+
+    if (this.showLikes) {
+      this.fetchLikes()
+    }
   }
 }
 </script>
@@ -87,5 +116,14 @@ export default {
   padding: map-get($spacers, 2);
   font-weight: lighter;
   text-align: center;
+}
+
+.like {
+  position: absolute;
+  top: map-get($spacers, 1);
+  right: map-get($spacers, 1);
+  padding: (map-get($spacers, 1) / 2) map-get($spacers, 1);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
 }
 </style>
