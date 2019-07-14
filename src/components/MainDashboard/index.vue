@@ -1,12 +1,23 @@
 <template>
-  <b-container>
-    <div class="py-4">
+  <b-container class="py-4">
+    <h2>Chara Anda</h2>
+    <div class="py-3">
       <loading-indicator v-if="!meChara" />
       <template v-else>
         <div v-if="meChara.length === 0" class="text-center text-muted">
           Anda belum memiliki karakter.
         </div>
         <chara-card-list v-else :charas="meChara" />
+      </template>
+    </div>
+    <h2>Chara yang Anda sukai</h2>
+    <div class="py-3">
+      <loading-indicator v-if="!meCharaLike" />
+      <template v-else>
+        <div v-if="meCharaLike.length === 0" class="text-center text-muted">
+          Anda belum memiliki chara yang disukai.
+        </div>
+        <chara-card-list v-else :charas="meCharaLike" />
       </template>
     </div>
   </b-container>
@@ -31,13 +42,19 @@ export default {
   },
   data () {
     return {
-      meChara: null
+      meChara: null,
+      meCharaLike: null
     }
   },
   mounted () {
-    acall(async () => {
-      this.meChara = await request('me/chara?bio=false')
-    })
+    acall([
+      async () => {
+        this.meChara = await request('me/chara?bio=false')
+      },
+      async () => {
+        this.meCharaLike = await request('me/chara/like')
+      }
+    ])
   }
 }
 </script>
