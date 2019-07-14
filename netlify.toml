@@ -5,6 +5,6 @@
 
 [[redirects]]
   from = "https://eloquent-hugle-a260c6.netlify.com/*"
-  to = "https://prinz-eugen.tkesgar.com/:splat"
+  to = "https://charadb.tkesgar.com/:splat"
   status = 301
   force = true

@@ -3,6 +3,7 @@ import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import './register-service-worker'
 
 Vue.use(BootstrapVue)
 

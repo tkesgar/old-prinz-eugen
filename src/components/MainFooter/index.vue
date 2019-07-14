@@ -2,7 +2,7 @@
   <div class="py-4 text-center text-muted">
     <ul class="p-0 mb-3">
       <li>
-        <b-link href="https://github.com/tkesgar/prinz-eugen" target="_blank">prinz-eugen</b-link>#<b-link :href="`https://github.com/tkesgar/prinz-eugen/commit/${commit}`" target="_blank">{{ commit }}</b-link>
+        <b-link href="https://github.com/tkesgar/prinz-eugen" target="_blank">CharaDB</b-link>#<b-link :href="`https://github.com/tkesgar/prinz-eugen/commit/${commit}`" target="_blank">{{ commit }}</b-link>
       </li>
       <li>
         <b-link to="/tos">Syarat dan Ketentuan</b-link>
