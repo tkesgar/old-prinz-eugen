@@ -5,7 +5,7 @@
         <b-link href="https://github.com/tkesgar/prinz-eugen" target="_blank">CharaDB</b-link>#<b-link :href="`https://github.com/tkesgar/prinz-eugen/commit/${commit}`" target="_blank">{{ commit }}</b-link>
       </li>
       <li>
-        <b-link to="/tos">Syarat dan Ketentuan</b-link>
+        <b-link to="/terms">Syarat dan Ketentuan</b-link>
       </li>
       <li>
         <b-link to="/privacy">Kebijakan Privasi</b-link>

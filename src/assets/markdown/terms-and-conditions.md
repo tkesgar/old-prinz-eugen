@@ -1,129 +1,87 @@
-# Persetujuan dan Kondisi
+# Syarat dan Ketentuan
 
-*placeholder text*
+<p class="text-muted">Tanggal: 2019-07-19</p>
 
-## Prinz Eugen
+Dokumen ini menjelaskan peraturan yang perlu diperhatikan oleh Pengguna.
 
-  - Artist: **realmbw**
-  - Voiced by: **Ayane Sakura**
+## Terminologi
 
-> Mmm… Are you the Commander? I wonder how long you're going to amuse me. I'm
-> expecting something from you.
+Yang dimaksud dengan Sistem adalah kesatuan kode aplikasi, perangkat lunak, dan perangkat keras yang menyediakan layanan CharaDB.
 
-### Beauty Mark
+Yang dimaksud dengan Pengguna adalah pihak yang mengakses Sistem.
 
-On the side of one of her breasts and the bulk of her skins don't hide it.
+Yang dimaksud dengan Pengguna Terdaftar adalah Pengguna yang telah teridentifikasi lewat data unik yang dapat digunakan untuk identifikasi Pengguna yang tersimpan di dalam Sistem.
 
-### Beneath the Mask
+Yang dimaksud dengan Staf adalah pihak yang mengelola CharaDB.
 
-She appears apathic and uncaring because she, by her own admission (when you
-oath her), felt empty inside when you first met her.
+## Persetujuan pengguna
 
-### Born Lucky
+Dengan mengakses Sistem, Pengguna menyetujui isi dokumen Syarat dan Ketentuan ini.
 
-While known as a lucky ship in real life, she resents being called lucky,
-instead claiming she's just really tough. Interestingly, her Luck stat is pretty
-high at 78, but not sky-high like you might expect (compare Yukikaze at an
-almighty 98).
+Dengan menyetujui dokumen ini, Pengguna juga menyetujui dokumen Kebjiakan Privasi yang tersedia di halaman terpisah.
 
-### Deadpan Snarker
+## Layanan dalam masa pengembangan
 
-She is rather sarcastic and often takes jabs at the Commander, and given the
-dialogue with other ships as well.
+CharaDB merupakan aplikasi web yang berada dalam tahap pengembangan. Sewaktu-waktu CharaDB dapat secara sepihak melakukan perubahan besar terhadap sistem, yang dapat berakibat pada perubahan fitur dan perubahan data konten.
 
-### Death Seeker
+CharaDB berusaha untuk melindungi dan menjaga konten Pengguna, namun CharaDB tidak bertanggung jawab terhadap kerugian yang ditimbulkan akibat perubahan Sistem dalam masa pengembangan.
 
-Implied to be one in her very In Harm's Way combat lines.
+Selama dalam masa pengembangan, CharaDB akan menampilkan lambang atau catatan yang menunjukkan Sistem sedang berada dalam tahap pengembangan.
 
-> This isn't enough at all. I need more, more......!
+## Antarmuka layanan
 
-> Hoho......Interesting......
+CharaDB hanya menyediakan antarmuka layanan yang tersedia di https://charadb.tkesgar.com. Semua antarmuka layanan lainnya tidak dikelola oleh CharaDB, dan CharaDB tidak bertanggung jawab atas kerugian akibat penggunaan antarmuka layanan tersebut.
 
-> Hohohohoho......you guy are great......
+## Perilaku pengguna
 
-### Defrosting Ice Queen
+CharaDB tidak bertanggung jawab atas kerugian yang ditimbulkan akibat interaksi antara saesama Pengguna.
 
-Downplayed. When you oath her, she will tease you like she used to, and then
-reveals that she is already not as empty inside as she used to be, thanks to
-you.
+## Pengelolaan layanan
 
-### Foil
+CharaDB dapat sewaktu-waktu melakukan perubahan terhadap layanan tanpa pemberitahuan terlebih dahulu kepada Pengguna.
 
-The playable one acts as one to her friend, Prince of Wales. Eugen is extremely
-apathetic and snarky, likes to tease people, and is *BornLucky*. Wales keeps a
-*StiffUpperLip*, is highly driven, encourages the Commander and her allies to do
-their best, does her best to cheer people up or encourage others to cheer people
-up, and is supremely unlucky. They are both named for princes, to boot.
+Untuk keperluan pengelolaan sistem, CharaDB dapat sewaktu-waktu menonaktifkan layanan untuk sementara. CharaDB tidak bertanggung jawab atas kerugian akibat penonaktifan layanan ini.
 
-### Embarrassing Nickname
+## Hak kekayaan intelektual
 
-The non-comedic type. Eugen makes it clear to you she does not like being called
-"the lucky ship". If you call her by that title, she will ask if you are
-taunting her.
+Kecuali disebutkan secara khusus, hak cipta seluruh konten yang terdapat di dalam Sistem adalah milik CharaDB. Konten dapat digunakan untuk kebutuhan pribadi dan disebarluaskan untuk kebutuhan pribadi selama mencantumkan sumber berupa nama CharaDB atau tautan yang jelas.
 
-Although not explicitly stated, there are multiple hints this is a sign that
-Eugen is concealing some amount of angst over her past.
+Kode sumber aplikasi CharaDB tersedia secara *open source* di bawah lisensi MIT.
 
-### The Gadfly
+Hak cipta aset layanan CharaDB dimiliki pembuat yang bersangkutan, yang telah menyumbangkan karyanya untuk CharaDB. CharaDB berhak untuk menggunakan salinan aset tersebut untuk kebutuhan layanan dan melakukan modifikasi terhadap aset tersebut sesuai dengan kebutuhan layanan. Aset layanan CharaDB tidak berhak untuk digunakan tanpa seizin CharaDB.
 
-Tends to tease the commander and other ships. It's her way of dealing with her
-apathetic nature. If the commander wins her heart, she loses her apathy, but she
-continues to affectionately tease them.
+Hak cipta konten yang dibuat oleh Pengguna dan tersedia di dalam Sistem dimiliki oleh Pengguna yang bersangkutan. CharaDB berhak untuk menggnuakan salinan konten tersebut untuk kebutuhan layanan. CharaDB tidak akan melakukan modifikasi terhadap konten tersebut tanpa seizin Pengguna yang bersangkutan. Pengguna lain tidak berhak menggunakan konten Pengguna tanpa seizin Pengguna yang bersangkutan.
 
-### Girlish Pigtails
+## Kualitas konten
 
-She has short twintails on the side.
+CharaDB berusaha memastikan konten yang berasal dari CharaDB merupakan konten yang sesuai dengan peraturan yang ada. Apabila terjadi permasalahan pada konten tersebut, maka CharaDB akan melakukan revisi, perbaikan, atau penghapusan terhadap konten tersebut.
 
-### Memetic Hand Gesture
+CharaDB tidak dapat menjamin konten yang berasal dari Pengguna merupakan konten yang sesuai dengan peraturan yang ada. Untuk kasus tertentu CharaDB dapat melakukan moderasi terhadap konten yang ada.
 
-She always has a finger on her mouth.
+CharaDB tidak bertanggung jawab atas kerugian yang terjadi akibat adanya konten yang tidak sesuai dengan peraturan yang ada.
 
-### No Hero to His Valet
+## Konten berbahaya
 
-She is one of the few Ironbloods who doesn't take Bismarck's posturing and will
-call her out.
+CharaDB berkomitmen untuk melindungi Pengguna dari konten yang berbahaya terhadap perangkat Pengguna, misalnya dengan menggunakan kamus dan kakas pengembangan aplikasi yang aman dan melakukan pemrosesan terhadap konten yang dibuat oleh Pengguna.
 
-### Odd Friendship
+Dalam hal terjadi kerugian yang diakibatkan oleh konten berbahaya, CharaDB tidak bertanggung jawab terhadap kerugian tersebut. Pengguna disarankan untuk memanfaatkan teknologi perlindungan yang tersedia pada perangkat untuk mengakses CharaDB.
 
-The playable Eugen has one with Prince of Wales, despite being one of the ships
-responsible for Wales' first great failure. Wales is apparently the one who put
-her up to wearing her infamous bikini.
+## Penggunaan layanan
 
-### Sentimental Drunk
+CharaDB melarang Pengguna untuk melakukan hal-hal yang dapat mengganggu Sistem.
 
-Her New Year's skin is what happens when she gets into the Sakura Empire's sake
-supply. She loses most of her snarkiness (one of her lines has her calling the
-Sakura Empire "stingy" and wishing they'd bring some liquor from the Eastern
-Radiance) and would rather just drink with the commander...and anyone else.
+CharaDB melarang Pengguna untuk melakukan hal-hal yang memungkinkan informasi pribadi dapat diakses oleh pihak yang seharusnya tidak memiliki hak akses informasi.
 
-  > Commander~ Let's have a drink~ and two more drinks~ ahh...Let's keep going~
+Apabila CharaDB menemukan pelanggaran Pengguna terhadap peraturan penggunaan layanan, CharaDB berhak mencabut hak akses Pengguna terhadap Sistem.
 
-### Sideboob
+## Batasan tanggung jawab
 
-A recurring element of her various outfits is that most of them reveal an ample
-amount of the sides of her breasts and make sure that the beauty mark on her
-right breast remains visible.
+CharaDB tidak bertanggung jawab terhadap kerugian apapun yang terjadi kepada Pengguna sebagai akibat dari penggunaan Sistem.
 
-### Skunk Stripe
+CharaDB tidak memiliki kewajiban apapun untuk memenuhi kesepakatan apapun yang dibuat oleh Pengguna terkait dengan layanan CharaDB, baik dengan maupun tanpa kesepakatan dengan CharaDB.
 
-She has a single, vibrantly red stripe in her head of white.
+## Peraturan hukum
 
-### Stepford Smiler
+CharaDB merupakan layanan yang berbasis di Indonesia, sehingga segala bentuk interaksi Pengguna dengan Sistem berada di bawah peraturan perundang-undangan yang berlaku di Indonesia.
 
-Possibly. At the very least, Z1 outright accuses her faking her smile too often
-if you sortie them together.
-
-### Stone Wall
-
-Has the highest HP among all heavy cruisers in the game (more than some
-battleships to boot), and her Unbreakable Shield skill lets her block a good
-number of enemy shells, making her very difficult to sink both in PvE and in
-PvP. This comes at the cost of her offensive stats. This is a nod for all the
-damage she's sustained and how two nukes were not enough to (immediately) sink
-her.
-
-### Stripperiffic
-
-Her summer skin has her wear a barely-there bikini, to the point it's censored
-in the CN server. Her New years outfit has her wearing a rather revealing
-(sideboob) kimono.
+CharaDB tidak bertanggung jawab terhadap pelanggaran hukum yang dilakukan oleh Pengguna sebagai akibat dari penggunaan Sistem.
