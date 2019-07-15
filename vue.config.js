@@ -15,10 +15,5 @@ module.exports = {
       .use('markdown')
       .loader('markdown-loader')
       .end()
-  },
-  pwa: {
-    name: 'CharaDB',
-    themeColor: '#0080f0',
-    msTileColor: '#000000'
   }
 }
