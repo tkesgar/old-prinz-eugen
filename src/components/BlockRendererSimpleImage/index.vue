@@ -39,7 +39,7 @@ export default {
       return this.data.stretched
     },
     alt () {
-      return this.caption || this.url
+      return this.caption || null
     }
   }
 }

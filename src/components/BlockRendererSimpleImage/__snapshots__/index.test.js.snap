@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockRendererDelimiter should match snapshot 1`] = `
+<figure
+  class="figure w-100 text-center figure-stretched"
+>
+  <div
+    class="bg-light border-secondary"
+  >
+    <img
+      alt="HMS Illustrious"
+      class="figure-img img-fluid img-height-viewport img-stretched"
+      src="https://azurlane.yo-star.com/static/bz7.bd94444.png"
+    />
+  </div>
+   
+  <figcaption
+    class="figure-caption"
+  >
+    
+    HMS Illustrious
+  
+  </figcaption>
+</figure>
+`;

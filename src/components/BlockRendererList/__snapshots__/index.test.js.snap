@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockRendererList should match snapshot 1`] = `
+<ol>
+  <li>
+    If you overwork yourself too much... you ~ will ~ die.
+  </li>
+  <li>
+    Lucky ship? Are you mocking me?
+  </li>
+  <li>
+    Operation Rheinübung? Looking back, that was how it all began for me.
+  </li>
+</ol>
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockRendererDelimiter should match snapshot 1`] = `
+<div
+  class="delimiter text-center py-4"
+/>
+`;
