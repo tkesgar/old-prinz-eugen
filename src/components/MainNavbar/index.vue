@@ -1,7 +1,7 @@
 <template>
   <b-navbar type="light" variant="light">
     <b-navbar-brand to="/">
-      Prinz Eugen <sup>pre-alpha</sup>
+      CharaDB<sup>alpha</sup>
     </b-navbar-brand>
     <b-navbar-nav v-if="user">
       <b-nav-item-dropdown left>
