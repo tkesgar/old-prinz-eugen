@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PageCallback from './components/PageCallback'
-import PageNotFound from './components/PageNotFound'
-import PageTermsAndConditions from './components/PageTermsAndConditions'
-import PagePrivacyPolicy from './components/PagePrivacyPolicy'
-import PageIndex from './components/PageIndex'
-import PageChara from './components/PageChara'
-import PageForbidden from './components/PageForbidden'
-import PageLogin from './components/PageLogin'
-import PageRequireAuth from './components/PageRequireAuth'
-import PageGo from './components/PageGo'
-import MainCharaView from './components/MainCharaView'
-import MainCharaEdit from './components/MainCharaEdit'
-import MainCharaEditProfile from './components/MainCharaEditProfile'
-import MainCharaEditImages from './components/MainCharaEditImages'
-import MainCharaEditBio from './components/MainCharaEditBio'
-import MainCharaEditDelete from './components/MainCharaEditDelete'
+
+const PageCallback = () => import(/* webpackChunkName: "pages-main" */ './components/PageCallback')
+const PageForbidden = () => import(/* webpackChunkName: "pages-main" */ './components/PageForbidden')
+const PageGo = () => import(/* webpackChunkName: "pages-main" */ './components/PageGo')
+const PageIndex = () => import(/* webpackChunkName: "pages-main" */ './components/PageIndex')
+const PageLogin = () => import(/* webpackChunkName: "pages-main" */ './components/PageLogin')
+const PageNotFound = () => import(/* webpackChunkName: "pages-main" */ './components/PageNotFound')
+const PagePrivacyPolicy = () => import(/* webpackChunkName: "pages-main" */ './components/PagePrivacyPolicy')
+const PageRequireAuth = () => import(/* webpackChunkName: "pages-main" */ './components/PageRequireAuth')
+const PageTermsAndConditions = () => import(/* webpackChunkName: "pages-main" */ './components/PageTermsAndConditions')
+
+const PageChara = () => import(/* webpackChunkName: "pages-chara" */ './components/PageChara')
+const MainCharaEdit = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaEdit')
+const MainCharaEditBio = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaEditBio')
+const MainCharaEditDelete = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaEditDelete')
+const MainCharaEditImages = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaEditImages')
+const MainCharaEditProfile = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaEditProfile')
+const MainCharaView = () => import(/* webpackChunkName: "pages-chara" */ './components/MainCharaView')
 
 Vue.use(Router)
 
