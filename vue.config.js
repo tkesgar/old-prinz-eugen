@@ -6,6 +6,9 @@ Object.assign(process.env, {
 
 module.exports = {
   chainWebpack (config) {
+    config.resolve.alias
+      .set('bootstrap-vue$', 'bootstrap-vue/src/index.js')
+
     config.module
       .rule('markdown')
       .test(/\.md$/)
