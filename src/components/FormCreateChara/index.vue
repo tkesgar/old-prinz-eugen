@@ -40,7 +40,7 @@
 
 <script>
 function shouldAutoChange (val, autoVal) {
-  return val.length === 0 || autoVal.startsWith(val)
+  return (!val || val.length === 0) || autoVal.startsWith(val)
 }
 
 function toName (str) {
@@ -75,6 +75,10 @@ export default {
   },
   watch: {
     fullName (newFullName) {
+      if (!newFullName) {
+        return
+      }
+
       const autoNickName = toNickName(newFullName)
       if (shouldAutoChange(this.nickName, autoNickName)) {
         this.nickName = autoNickName
