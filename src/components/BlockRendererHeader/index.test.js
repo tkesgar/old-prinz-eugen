@@ -24,7 +24,6 @@ describe('BlockRendererList', () => {
   })
 })
 
-
 describe('BlockRendererList test with all heading levels', () => {
   for (let level = 1; level <= 6; level++) {
     test(`should render h${level}`, () => {
